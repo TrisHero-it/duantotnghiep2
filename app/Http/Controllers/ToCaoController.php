@@ -21,4 +21,24 @@ class ToCaoController extends Controller
 
         return view('admin.tocaos.add', compact('players'));
     }
+
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'id_player' => 'required|exists:tai_khoans,id',
+            'noi_dung_to_cao' => 'required|string|max:5000',
+        ]);
+
+        $fakeUserId = 1;
+
+        ToCao::create([
+            'id_nguoi_dung' => $fakeUserId,
+            'id_player' => $request->id_player,
+            'noi_dung_to_cao' => $request->noi_dung_to_cao,
+            'trang_thai' => 'Chờ xử lí',
+        ]);
+
+        return redirect()->route('tocao.index')->with('success', 'Complaint filed successfully.');
+    }
 }
