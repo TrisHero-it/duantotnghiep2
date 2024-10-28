@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::get('/to-caos', [ToCaoController::class, 'index'])->name('tocao.index');
 Route::delete('/to-caos/{complaint}', [ToCaoController::class, 'destroy'])->name('tocaos.destroy');
 Route::patch('/to-caos/{complaint}', [ToCaoController::class, 'updateStatus'])->name('tocao.updateStatus');
+Route::get('/to-caos/add', [ToCaoController::class, 'create'])->name('tocao.add');
+Route::post('/to-caos/add', [ToCaoController::class, 'store'])->name('tocao.store');
