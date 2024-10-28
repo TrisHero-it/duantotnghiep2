@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('admin.layout.app')
 
 
 @section('content')
@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h5 class="mb-0">Tố cáo người chơi</h5>
-                <a href="{{ route('tocao.add') }}" class="btn btn-primary">Thêm tố cáo</a>
+                <a href="{{ route('admin.tocao.add') }}" class="btn btn-primary">Thêm tố cáo</a>
             </div>
             @if (session('success'))
                 <div class="alert alert-success">

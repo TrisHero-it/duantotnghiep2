@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('admin.layout.app')
 
 
 @section('content')
@@ -11,7 +11,7 @@
             </div>
         @endif
 
-        <form action="{{ route('tocao.store') }}" method="POST">
+        <form action="{{ route('admin.tocao.store') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="id_player">Chọn người chơi mà bạn muốn tố cáo:</label>
