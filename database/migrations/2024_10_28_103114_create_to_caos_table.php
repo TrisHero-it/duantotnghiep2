@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_nguoi_dung');
             $table->unsignedBigInteger('id_player');
             $table->text('noi_dung_to_cao');
-            $table->enum('trang_thai', ['Chờ xử lí', 'Đang xử lí', 'Thành công', 'Thất bại'])->default('Chờ xử lí');
+            $table->enum('trang_thai', ['Chờ xử lí', 'Đã Duyệt', 'Hủy'])->default('Chờ xử lí');
             $table->foreign('id_nguoi_dung')->references('id')->on('tai_khoans')->onDelete('cascade');
             $table->foreign('id_player')->references('id')->on('tai_khoans')->onDelete('cascade');
             $table->timestamps();

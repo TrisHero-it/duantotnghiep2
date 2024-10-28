@@ -52,7 +52,7 @@ class ToCaoController extends Controller
     public function updateStatus(ToCao $complaint, Request $request)
     {
         $request->validate([
-            'trang_thai' => 'required|in:Chờ xử lí,Đang xử lí,Thành công,Thất bại',
+            'trang_thai' => 'required|in:Chờ xử lí,Đã Duyệt,Hủy',
         ]);
 
         $complaint->update([
@@ -62,12 +62,11 @@ class ToCaoController extends Controller
         $user = TaiKhoan::find($complaint->id_player);
         if ($user) {
             switch ($request->trang_thai) {
-                case 'Thành công':
+                case 'Đã Duyệt':
                     $user->update(['bi_cam' => 1]);
                     break;
                 case 'Chờ xử lí':
-                case 'Đang xử lí':
-                case 'Thất bại':
+                case 'Hủy':
                     $user->update(['bi_cam' => 0]);
                     break;
             }
