@@ -35,36 +35,25 @@
                                 @method('PATCH')
 
 
-                                <select name="trang_thai" class="form-control" required>
-                                    <option value="Chờ xử lí"
-                                        {{ $complaint->trang_thai === 'Chờ xử lí' ? 'selected' : '' }}>Chờ
-                                        xử lí</option>
-                                    <option value="Đang xử lí"
-                                        {{ $complaint->trang_thai === 'Đang xử lí' ? 'selected' : '' }}>Đang
-                                        xử lí</option>
-                                    <option value="Thành công"
-                                        {{ $complaint->trang_thai === 'Thành công' ? 'selected' : '' }}>
-                                        Thành công</option>
-                                    <option value="Thất bại" {{ $complaint->trang_thai === 'Thất bại' ? 'selected' : '' }}>
-                                        Thất
-                                        bại</option>
-                                </select>
 
 
                                 <select class="mb-3 form-control form-control-lg" name="trang_thai" required>
-                                    <option value="Chờ xử lí">
-                                        {{ $complaint->trang_thai === 'Chờ xử lí' ? 'selected' : '' }}Chờ xử lí</option>
-                                    <option value="Đã Duyệt">{{ $complaint->trang_thai === 'Đã Duyệt' ? 'selected' : '' }}Đã
+                                    <option value="Chờ xử lí"
+                                        {{ $complaint->trang_thai === 'Chờ xử lí' ? 'selected' : '' }}>
+                                        Chờ xử lí</option>
+                                    <option value="Đã Duyệt" {{ $complaint->trang_thai === 'Đã Duyệt' ? 'selected' : '' }}>
+                                        Đã
                                         Duyệt</option>
-                                    <option value="Hủy">{{ $complaint->trang_thai === 'Hủy' ? 'selected' : '' }}Hủy
+                                    <option value="Hủy" {{ $complaint->trang_thai === 'Hủy' ? 'selected' : '' }}>Hủy
                                     </option>
 
                                 </select>
+
+                                <button type="submit" class="btn btn-primary mb-4">Cập nhật</button>
                             </form>
                         </div>
 
 
-                        <button type="submit" class="btn btn-primary mb-4">Cập nhật</button>
                     </form>
                 </div>
 
