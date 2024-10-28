@@ -69,4 +69,12 @@ class ToCaoController extends Controller
 
         return redirect()->back()->with('success', 'Complaint status updated successfully.');
     }
+
+
+    public function destroy(ToCao $complaint)
+    {
+        $complaint->delete();
+
+        return redirect()->back()->with('success', 'Complaint deleted successfully.');
+    }
 }
