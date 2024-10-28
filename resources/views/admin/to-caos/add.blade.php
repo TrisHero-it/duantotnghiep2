@@ -18,7 +18,7 @@
                 <select name="id_player" id="id_player" class="form-control" required>
                     <option value="">-- Chọn --</option>
                     @foreach ($players as $player)
-                        <option value="{{ $player->id }}">{{ $player->ten }}</option>
+                        <option value="{{ $player->id }}">{{ $player->ten }} (Player)</option>
                     @endforeach
                 </select>
                 @error('id_player')
