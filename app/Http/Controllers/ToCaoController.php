@@ -12,14 +12,14 @@ class ToCaoController extends Controller
     public function index()
     {
         $complaints = ToCao::with(['user', 'player'])->get();
-        return view('admin.tocaos.index', compact('complaints'));
+        return view('admin.to-caos.index', compact('complaints'));
     }
 
     public function create()
     {
         $players = TaiKhoan::where('phan_quyen_id', 2)->get();
 
-        return view('admin.tocaos.add', compact('players'));
+        return view('admin.to-caos.add', compact('players'));
     }
 
 
