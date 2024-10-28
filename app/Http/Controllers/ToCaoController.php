@@ -39,7 +39,7 @@ class ToCaoController extends Controller
             'trang_thai' => 'Chờ xử lí',
         ]);
 
-        return redirect()->route('tocao.index')->with('success', 'Complaint filed successfully.');
+        return redirect()->route('admin.tocao.index')->with('success', 'Complaint filed successfully.');
     }
 
 
@@ -57,12 +57,12 @@ class ToCaoController extends Controller
         if ($user) {
             switch ($request->trang_thai) {
                 case 'Thành công':
-                    $user->update(['bi_cam' => 2]);
+                    $user->update(['bi_cam' => 1]);
                     break;
                 case 'Chờ xử lí':
                 case 'Đang xử lí':
                 case 'Thất bại':
-                    $user->update(['bi_cam' => 1]);
+                    $user->update(['bi_cam' => 0]);
                     break;
             }
         }

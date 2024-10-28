@@ -36,7 +36,8 @@
                                     <td>{{ $complaint->noi_dung_to_cao }}</td>
                                     <td>{{ ucfirst($complaint->trang_thai) }}</td>
                                     <td>
-                                        <form action="{{ route('tocao.updateStatus', $complaint->id) }}" method="POST">
+                                        <form action="{{ route('admin.tocao.updateStatus', $complaint->id) }}"
+                                            method="POST">
                                             @csrf
                                             @method('PATCH')
 
@@ -62,7 +63,7 @@
                                     </td>
                                     <td>
 
-                                        <form action="{{ route('tocaos.destroy', $complaint->id) }}" method="POST"
+                                        <form action="{{ route('admin.tocaos.destroy', $complaint->id) }}" method="POST"
                                             onsubmit="return confirm('Are you sure you want to delete this complaint?');">
                                             @csrf
                                             @method('DELETE')
