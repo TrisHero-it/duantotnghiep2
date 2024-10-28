@@ -24,7 +24,7 @@
                                 <th>Nội dung tố cáo</th>
                                 <th>Trang thái</th>
                                 <th>Xét duyệt</th>
-                                <th>Chức năng</th>
+                                <th>Thao tác</th>
                             </tr>
                         </thead>
                         <tbody>
