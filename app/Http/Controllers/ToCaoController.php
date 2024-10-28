@@ -72,7 +72,7 @@ class ToCaoController extends Controller
             }
         }
 
-        return redirect()->back()->with('success', 'Complaint status updated successfully.');
+        return redirect()->route('admin.tocao.index')->with('success', 'Complaint status updated successfully.');
     }
 
 
