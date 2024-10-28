@@ -41,4 +41,32 @@ class ToCaoController extends Controller
 
         return redirect()->route('tocao.index')->with('success', 'Complaint filed successfully.');
     }
+
+
+    public function updateStatus(ToCao $complaint, Request $request)
+    {
+        $request->validate([
+            'trang_thai' => 'required|in:Chờ xử lí,Đang xử lí,Thành công,Thất bại',
+        ]);
+
+        $complaint->update([
+            'trang_thai' => $request->trang_thai,
+        ]);
+
+        $user = TaiKhoan::find($complaint->id_player);
+        if ($user) {
+            switch ($request->trang_thai) {
+                case 'Thành công':
+                    $user->update(['bi_cam' => 2]);
+                    break;
+                case 'Chờ xử lí':
+                case 'Đang xử lí':
+                case 'Thất bại':
+                    $user->update(['bi_cam' => 1]);
+                    break;
+            }
+        }
+
+        return redirect()->back()->with('success', 'Complaint status updated successfully.');
+    }
 }
