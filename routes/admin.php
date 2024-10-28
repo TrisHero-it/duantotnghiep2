@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('/to-caos', [ToCaoController::class, 'index'])->name('tocao.index');
+Route::delete('/to-caos/{complaint}', [ToCaoController::class, 'destroy'])->name('tocaos.destroy');
