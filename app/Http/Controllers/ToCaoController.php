@@ -23,6 +23,12 @@ class ToCaoController extends Controller
     }
 
 
+    public function show(ToCao $complaint)
+    {
+        return view('admin.to-caos.show', compact('complaint'));
+    }
+
+
     public function store(Request $request)
     {
         $request->validate([
