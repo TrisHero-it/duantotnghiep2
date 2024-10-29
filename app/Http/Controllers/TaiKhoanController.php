@@ -12,4 +12,9 @@ class TaiKhoanController extends Controller
         $taikhoans = TaiKhoan::all();
         return view('admin.taikhoans.index', compact('taikhoans'));
     }
+    public function create()
+    {
+
+        return view("admin.taikhoans.create");
+    }
 }
