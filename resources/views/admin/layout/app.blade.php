@@ -90,6 +90,16 @@
                             <li class=""><a href="!#" class="">Thêm mới</a></li>
                         </ul>
                     </li>
+
+                    <li data-username="dashboard default ecommerce sales Helpdesk ticket CRM analytics project"
+                        class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link"><span class="pcoded-micon"><i
+                                    class="feather icon-credit-card"></i></span><span class="pcoded-mtext">Phân quyền</span></a>
+                        <ul class="pcoded-submenu">
+                            <li class=""><a href="index" class="">Danh sách</a></li>
+                            <li class=""><a href="create" class="">Thêm mới</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
 
