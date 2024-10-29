@@ -1,6 +1,5 @@
 @extends('admin.layouts.app')
 
-
 @section('content')
 
 <div class="row custom-color">
@@ -51,11 +50,6 @@
                                 </div>
                             </div>
                             </fieldset>
-                            {{-- <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input input-primary" id="exampleCheck1">
-                                <label for="exampleCheck1">Check me out</label>
-                            </div> --}}
-                            
                         </form>
                     </div>
                     <div class="col-md-6">
@@ -97,14 +91,6 @@
                                 <label class="form-label" for="">Số dư</label>
                                 <input type="number" class="form-control" value="{{ $player -> taiKhoan -> so_du }}">
                             </div>
-                            {{-- <div class="mb-3">
-                                <label class="form-label" for="">Trạng thái</label>
-                                <input type="text" class="form-control" value="{{ $player -> taiKhoan -> bi_cam }}">
-                            </div> --}}
-                            {{-- <div class="mb-3">
-                                <label class="form-label" for="">Phân quyền</label>
-                                <input type="text" class="form-control" value="{{ $player -> taiKhoan -> phanQuyen -> ten }}">
-                            </div> --}}
                             </fieldset>
                         </form>
                         
@@ -121,8 +107,7 @@
                 <a href="{{ route('admin.players.index') }}"><button type="" class="btn btn-primary mb-4 mt-3 text-center">Trở về</button></a>
             </div>
         </div>
- 
-    <!-- [ form-element ] end -->
+    </div>
 </div>
 
 @endsection
