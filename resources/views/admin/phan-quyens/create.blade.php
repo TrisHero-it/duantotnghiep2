@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Thêm tài khoản</h1>
-    <form action="{{ route('admin.phan-quyens.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.phanquyen.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="name">Tên</label>

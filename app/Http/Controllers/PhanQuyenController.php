@@ -20,7 +20,7 @@ class PhanQuyenController extends Controller
 }
 function store(Request $request){
     $phanquyens = PhanQuyen::create($request->all());
-    return redirect()->route('admin.phan-quyens.index')->with('success', 'Thêm thành công!');
+    return redirect()->route('admin.phanquyen.index')->with('success', 'Thêm thành công!');
 }
 public function edit(Request $request, $id)
     {

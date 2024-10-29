@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Sửa tài khoản</h1>
-    <form action="{{ route('admin.phan-quyens.update' , $phanquyens->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.phanquyen.update' , $phanquyens->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
         <div class="form-group">
