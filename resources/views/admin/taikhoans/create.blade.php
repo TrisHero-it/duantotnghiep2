@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-
+<title>@yield('title' , 'Đây là thêm mới')</title>
 @section('content')
 <div class="container">
     <h1>Thêm tài khoản</h1>

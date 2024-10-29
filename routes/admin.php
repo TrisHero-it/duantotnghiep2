@@ -21,4 +21,4 @@ Route::get('/', function () {
 });
 Route::get('/taikhoans', [TaiKhoanController::class, 'index'])->name('taikhoans.index');
 Route::get('/taikhoans/create', [TaiKhoanController::class, 'create'])->name('taikhoans.create');
-Route::get('/taikhoans/store', [TaiKhoanController::class, 'create'])->name('taikhoans.store');
+Route::post('/taikhoans/store', [TaiKhoanController::class, 'store'])->name('taikhoans.store');

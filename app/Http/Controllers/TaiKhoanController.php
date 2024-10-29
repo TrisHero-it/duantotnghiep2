@@ -22,19 +22,19 @@ class TaiKhoanController extends Controller
     public function store(Request $request)
     {
         // Thêm validation
-        $request->validate([
-            'ten' => 'required|string|max:255',
-            'ngay_sinh' => 'required|date',
-            'biet_danh' => 'required|string|max:255',
-            'gioi_tinh' => 'required|in:Nam,Nữ',
-            'email' => 'required|email|unique:users,email',
-            'sdt' => 'required|numeric|digits_between:10,15',
-            'cccd' => 'required|numeric|digits:12|unique:users,cccd',
-            'mat_khau' => 'required|string|min:8',
-            'so_du' => 'required|numeric|min:0',
-            'anh_dai_dien' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'bi_cam' => 'required|in:1,2',
-        ]);
+        // $request->validate([
+        //     'ten' => 'required|string|max:255',
+        //     'ngay_sinh' => 'required|date',
+        //     'biet_danh' => 'required|string|max:255',
+        //     'gioi_tinh' => 'required|in:Nam,Nữ',
+        //     'email' => 'required|email|unique:users,email',
+        //     'sdt' => 'required|numeric|digits_between:10,15',
+        //     'cccd' => 'required|numeric|digits:12|unique:users,cccd',
+        //     'mat_khau' => 'required|string|min:8',
+        //     'so_du' => 'required|numeric|min:0',
+        //     'anh_dai_dien' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        //     'bi_cam' => 'required|in:1,2',
+        // ]);
 
         // Xử lý file ảnh và lưu vào database
         $anh_dai_diens = $request->except("anh_dai_dien");
@@ -42,6 +42,6 @@ class TaiKhoanController extends Controller
             $anh_dai_diens['anh_dai_dien'] = Storage::put(self::path_upload, $request->file('anh_dai_dien'));
         }
         $data = TaiKhoan::create($anh_dai_diens);
-        return redirect()->route('index')->with('success', 'Thêm tài khoản thành công!');
+        return redirect()->route('admin.taikhoans.index')->with('success', 'Thêm tài khoản thành công!');
     }
 }

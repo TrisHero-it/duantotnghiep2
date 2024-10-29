@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-
+<title>@yield('title' , 'Đây là danh sách')</title>
 @section('content')
 
 <div class="row">

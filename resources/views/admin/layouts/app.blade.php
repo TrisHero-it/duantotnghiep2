@@ -86,8 +86,8 @@
                         <a href="#!" class="nav-link"><span class="pcoded-micon"><i
                                     class="feather icon-credit-card"></i></span><span class="pcoded-mtext">Quản lí tài khoản</span></a>
                         <ul class="pcoded-submenu">
-                            <li class="{{route('admin.taikhoans.index')}}"><a href="!#" class="">Danh sách</a></li>
-                            <li class=""><a href="!#" class="">Thêm mới</a></li>
+                            <li class=""><a href="{{route('admin.taikhoans.index')}}" class="">Danh sách</a></li>
+                            <li class=""><a href="{{route('admin.taikhoans.create')}}" class="">Thêm mới</a></li>
                         </ul>
                     </li>
                 </ul>
