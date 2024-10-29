@@ -47,14 +47,6 @@
                             </tr>
                             @endforeach
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>STT</th>
-                                <th>Tên</th>
-                                <th>Trạng thái</th>
-                                <th>Thao tác</th>
-                            </tr>
-                        </tfoot>
                     </table>
                 </div>
             </div>
