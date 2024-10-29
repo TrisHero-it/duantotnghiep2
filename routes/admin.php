@@ -23,3 +23,4 @@ Route::get('/phan-quyens/create', [PhanQuyenController::class, 'create'])->name(
 Route::post('/phan-quyens/store', [PhanQuyenController::class, 'store'])->name('phanquyen.store');
 Route::get('/phan-quyens/edit/{id}', [PhanQuyenController::class, 'edit'])->name('phanquyen.edit');
 Route::put('/phan-quyens/update/{id}', [PhanQuyenController::class, 'update'])->name('phanquyen.update');
+Route::delete('/phan-quyens/{id}', [PhanQuyenController::class, 'destroy'])->name('phanquyen.destroy');

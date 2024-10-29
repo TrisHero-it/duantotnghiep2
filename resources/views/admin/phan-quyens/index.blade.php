@@ -9,7 +9,7 @@
     <a href="{{ route('admin.phanquyen.create') }}" class="btn btn-primary">Thêm</a>
         <div class="card">
             <div class="card-header">
-                <h5>Danh sách tài khoản</h5>
+                <h5>Danh sách</h5>
             </div>
             @if(session('success'))
             <div class="alert alert-success">
