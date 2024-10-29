@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-
+<title>@yield('title' , 'Đây là chỉnh sửa')</title>
 @section('content')
 <div class="container">
     <h1>Sửa tài khoản</h1>

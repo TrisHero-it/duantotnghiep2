@@ -44,4 +44,52 @@ class TaiKhoanController extends Controller
         $data = TaiKhoan::create($anh_dai_diens);
         return redirect()->route('admin.taikhoans.index')->with('success', 'Thêm tài khoản thành công!');
     }
+    public function edit(Request $request, $id)
+    {
+        $taikhoans = TaiKhoan::find($id);
+        return view('admin.taikhoans.edit', compact('taikhoans'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $taikhoans = TaiKhoan::find($id);
+        $anh_dai_dien = $request->except('anh_dai_dien');
+
+        if ($request->hasFile('anh_dai_dien')) {
+            if ($taikhoans->anh_dai_dien) {
+                Storage::disk("public")->delete($taikhoans->anh_dai_dien);
+                $anh_dai_dien['anh_dai_dien'] = Storage::put(self::path_upload, $request->file('anh_dai_dien'));
+            } else {
+                $anh_dai_dien['anh_dai_dien'] = $taikhoans->anh_dai_dien;
+            }
+        }
+
+        $taikhoans->update($anh_dai_dien);
+        return redirect()->route('admin.taikhoans.index');
+    }
+    public function destroy($id)
+    {
+        // Tìm tài khoản theo ID
+        $taikhoan = TaiKhoan::findOrFail($id);
+
+        // Xóa ảnh nếu cần
+        if ($taikhoan->cccd) {
+            Storage::delete($taikhoan->cccd);
+        }
+        if ($taikhoan->anh_dai_dien) {
+            Storage::delete($taikhoan->anh_dai_dien);
+        }
+
+        // Xóa tài khoản
+        $taikhoan->delete();
+
+        // Quay lại danh sách với thông báo thành công
+        return redirect()->route('admin.taikhoans.index')->with('success', 'Tài khoản đã được xóa thành công!');
+    }
+    public function show($id)
+    {
+        $taikhoan = TaiKhoan::find($id);
+        return view('admin.taikhoans.show', compact('taikhoan'));
+        
+    }
 }

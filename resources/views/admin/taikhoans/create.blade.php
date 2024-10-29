@@ -33,9 +33,8 @@
             <input type="number" name="sdt" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="cccd">Căn cước công dân</label>
-            <input type="number" name="cccd" class="form-control" style="width: 100px;" required>
-            <img id="cccd-preview" src="#" alt="CCCD Preview" style="display:none; margin-top:10px; width:100px; height:auto;">
+            <label for="sdt">CCCD</label>
+            <input type="number" name="cccd" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="mat_khau">Password</label>
