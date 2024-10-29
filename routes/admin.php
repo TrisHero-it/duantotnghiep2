@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TaiKhoanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin.layout.app');
+    return view('admin.layouts.app');
 });
+Route::get('/taikhoans', [TaiKhoanController::class, 'index'])->name('taikhoans.index');
