@@ -6,7 +6,7 @@
 <div class="row">
     <!-- Zero config table start -->
     <div class="col-sm-12">
-    <a href="" class="btn btn-primary">Thêm tài khoản</a>
+    <a href="{{ route('admin.taikhoans.create') }}" class="btn btn-primary">Thêm tài khoản</a>
         <div class="card">
             <div class="card-header">
                 <h5>Danh sách tài khoản</h5>
@@ -41,15 +41,15 @@
                                 <td>{{ $taikhoan->email }}</td>
                                 <td>{{ $taikhoan->sdt }}</td>
                                 <td>
-                                <a href="{{route('admin.taikhoans.edit', $taikhoan->id)}}" class="btn btn-warning">Chỉnh sửa</a>
-                                <form action="{{route('admin.taikhoans.delete',$taikhoan->id)}}" method="POST" style="display:inline;" onclick="confirm('Bạn có chắc muốn xóa không?')">
+                                <a href="" class="btn btn-warning">Chỉnh sửa</a>
+                                <form action="" method="POST" style="display:inline;" onclick="confirm('Bạn có chắc muốn xóa không?')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Xóa</button>
 
 
                                 </form>
-                                <a href="{{ route('admin.taikhoans.show', $taikhoan->id) }}" class="btn btn-info">Xem chi tiết</a>
+                                <a href="" class="btn btn-info">Xem chi tiết</a>
                                 </td>
                             </tr>
                             @endforeach

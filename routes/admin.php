@@ -16,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('admin.layouts.app');
+
+    
 });
 Route::get('/taikhoans', [TaiKhoanController::class, 'index'])->name('taikhoans.index');
+Route::get('/taikhoans/create', [TaiKhoanController::class, 'create'])->name('taikhoans.create');
+Route::get('/taikhoans/store', [TaiKhoanController::class, 'create'])->name('taikhoans.store');
