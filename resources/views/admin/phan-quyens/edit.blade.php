@@ -2,7 +2,7 @@
 <title>@yield('title' , 'Đây là chỉnh sửa')</title>
 @section('content')
 <div class="container">
-    <h1>Sửa tài khoản</h1>
+    <h1>Sửa</h1>
     <form action="{{ route('admin.phanquyen.update' , $phanquyens->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')

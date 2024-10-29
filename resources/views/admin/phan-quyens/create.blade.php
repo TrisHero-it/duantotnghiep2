@@ -2,7 +2,7 @@
 <title>@yield('title' , 'Đây là thêm mới')</title>
 @section('content')
 <div class="container">
-    <h1>Thêm </h1>
+    <h1>Thêm</h1>
     <form action="{{ route('admin.phanquyen.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
