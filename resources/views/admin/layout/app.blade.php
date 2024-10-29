@@ -96,8 +96,8 @@
                         <a href="#!" class="nav-link"><span class="pcoded-micon"><i
                                     class="feather icon-credit-card"></i></span><span class="pcoded-mtext">Phân quyền</span></a>
                         <ul class="pcoded-submenu">
-                            <li class=""><a href="index" class="">Danh sách</a></li>
-                            <li class=""><a href="create" class="">Thêm mới</a></li>
+                            <li class=""><a href="phanquyens.index" class="">Danh sách</a></li>
+                            <li class=""><a href="phanquyens.create" class="">Thêm mới</a></li>
                         </ul>
                     </li>
                 </ul>

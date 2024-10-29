@@ -18,6 +18,24 @@ class PhanQuyenController extends Controller
     function create(){
         return view("admin.phan-quyens.create");
 }
-
+function store(Request $request){
+    $phanquyens = PhanQuyen::create($request->all());
+    return redirect()->route('admin.phan-quyens.index')->with('success', 'Thêm thành công!');
+}
+public function edit(Request $request, $id)
+    {
+        $phanquyens = PhanQuyen::find($id);
+        return view('admin.phan-quyens.edit', compact('phanquyens'));
+    }
+function update(Request $request, $id){
+    $data = PhanQuyen::findOrFail($id);
+   $data->update($request->all());
+   return redirect()->route('admin.phan-quyens.index')->with('success', 'Sửa thành công!');
+}
+function delete( $id){
+    $data = PhanQuyen::findOrFail($id);
+   $data->delete();
+   return redirect()->route("admin.phan-quyens.index");
+}
 
 }
