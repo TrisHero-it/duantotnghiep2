@@ -30,12 +30,12 @@ public function edit(Request $request, $id)
 function update(Request $request, $id){
     $data = PhanQuyen::findOrFail($id);
    $data->update($request->all());
-   return redirect()->route('admin.phan-quyens.index')->with('success', 'Sửa thành công!');
+   return redirect()->route('admin.phanquyen.index')->with('success', 'Sửa thành công!');
 }
-function delete( $id){
+function destroy( $id){
     $data = PhanQuyen::findOrFail($id);
    $data->delete();
-   return redirect()->route("admin.phan-quyens.index");
+   return redirect()->route("admin.phanquyen.index");
 }
 
 }

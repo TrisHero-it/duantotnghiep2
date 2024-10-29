@@ -22,7 +22,7 @@
                     <table id="simpletable" class="table table-striped table-bordered nowrap">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>STT</th>
                                 <th>Tên</th>
                                 <th>Trạng thái</th>
                                 <th>Thao tác</th>
@@ -31,26 +31,25 @@
                         <tbody>
                             @foreach($phanquyens as $phanquyen)
                             <tr>
-                                <td>{{ $phanquyen->id }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $phanquyen->ten }}</td>
-                                <td>{{ $phanquyen->gioi_tinh }}</td>
+                                <td>{{ $phanquyen->trang_thai }}</td>
                                 <td>
-                                <a href="{{ route('admin.phan-quyens.edit', $phanquyen->id) }}"class="btn btn-warning">Chỉnh sửa</a>
-                                <form action="{{ route('admin.phan-quyens.delete', $phanquyen->id) }}" method="POST" style="display:inline;" onclick="confirm('Bạn có chắc muốn xóa không?')">
+                                <a href="{{ route('admin.phanquyen.edit', $phanquyen->id) }}"class="btn btn-warning">Chỉnh sửa</a>
+                                <form action="{{ route('admin.phanquyen.destroy', $phanquyen->id) }}" method="POST" style="display:inline;" onclick="confirm('Bạn có chắc muốn xóa không?')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Xóa</button>
 
 
                                 </form>
-                                <a href="{{ route('admin.phan-quyens.show', $phanquyen->id) }}" class="btn btn-info">Xem chi tiết</a>
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>ID</th>
+                                <th>STT</th>
                                 <th>Tên</th>
                                 <th>Trạng thái</th>
                                 <th>Thao tác</th>

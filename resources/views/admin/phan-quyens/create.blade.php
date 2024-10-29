@@ -10,7 +10,7 @@
             <input type="text" name="ten" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="ngay_sinh">Trạng thái</label>
+            <label for="trang_thai">Trạng thái</label>
             <input type="text" name="trang_thai" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-success">Thêm tài khoản</button>

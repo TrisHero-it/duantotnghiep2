@@ -12,7 +12,7 @@
         </div>
         <div class="form-group">
             <label for="name">Trạng thái</label>
-            <input type="text" name="ngay_sinh" class="form-control" value="{{$phanquyens->trang_thai}}" required>
+            <input type="text" name="trang_thai" class="form-control" value="{{$phanquyens->trang_thai}}" required>
         </div>
       
        
