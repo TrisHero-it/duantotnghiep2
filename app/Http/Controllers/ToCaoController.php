@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ToCao;
 use App\Models\TaiKhoan;
+use Illuminate\Support\Facades\Storage;
 
 class ToCaoController extends Controller
 {
@@ -31,30 +32,40 @@ class ToCaoController extends Controller
 
     public function store(Request $request)
     {
+        $fakeUserId = 3;  // Giả lập ID người dùng là 3
 
-        $user = auth()->user(); // Lấy thông tin người dùng hiện tại
-        if (empty($user->cccd)) {
-            return redirect()->back()->with('error', 'Bạn cần cập nhật thông tin CCCD trước khi gửi tố cáo.');
-        }
-
-
+        // Xác thực các trường trong request
         $request->validate([
             'id_player' => 'required|exists:tai_khoans,id',
             'noi_dung_to_cao' => 'required|string|max:5000',
         ]);
 
-        $fakeUserId = 4;
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName(); // Tạo tên duy nhất cho ảnh
 
+            // Lưu file vào thư mục 'public/images' trong storage
+            $imagePath = $image->storeAs('public/images', $imageName);
+
+            // Lấy đường dẫn có thể truy cập công khai
+            $imagePath = Storage::url($imagePath);
+        }
+
+        // Lưu tố cáo vào cơ sở dữ liệu với ID người dùng giả
         ToCao::create([
-            'id_nguoi_dung' => $fakeUserId,
+            'id_nguoi_dung' => $fakeUserId,  // Sử dụng ID giả
             'id_player' => $request->id_player,
+            'id_tin_nhan' => $request->input('id_tin_nhan', 1),
+            'tieu_de_to_cao' => $request->tieu_de_to_cao,
             'noi_dung_to_cao' => $request->noi_dung_to_cao,
+            'image_path' => $imagePath,
             'trang_thai' => 'Chờ xử lí',
         ]);
 
-        return redirect()->route('admin.tocao.index')->with('success', 'Complaint filed successfully.');
+        // Chuyển hướng với thông báo thành công
+        return redirect()->route('admin.tocao.index')->with('success', 'Đã gửi tố cáo thành công.');
     }
-
 
     public function updateStatus(ToCao $complaint, Request $request)
     {

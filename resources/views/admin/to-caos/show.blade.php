@@ -34,9 +34,45 @@
                         </div>
 
                         <div class="mb-3">
+                            <label class="form-label" for="player_name">ID tin nhắn:</label>
+                            <input type="text" class="form-control" id="id_tin_nhan" placeholder="Id Tin Nhắn"
+                                value="{{ $complaint->id_tin_nhan }}" readonly disabled>
+                            <a href="#" class="text-primary" style="text-decoration: none;"
+                                onmouseover="this.style.textDecoration='underline'"
+                                onmouseout="this.style.textDecoration='none'">Chi tiết tin nhắn của đôi bên tại đây.</a>
+
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="player_name">Tiêu đề tố cáo player:</label>
+                            <input type="text" class="form-control" id="tieu_de_to_cao"
+                                placeholder="Tiêu đề tố cáo player ..." value="{{ $complaint->tieu_de_to_cao }}" readonly
+                                disabled>
+
+
+                        </div>
+
+
+                        <div class="mb-3">
                             <label class="form-label" for="complaint_content">Nội dung tố cáo:</label>
                             <textarea class="form-control" id="complaint_content" rows="3" readonly disabled>{{ $complaint->noi_dung_to_cao }}</textarea>
                         </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="complaint_image">Ảnh minh chứng:</label>
+                            <div class="card">
+                                <div class="card-body">
+                                    @if ($complaint->image_path)
+                                        <img src="{{ asset($complaint->image_path) }}" class="img-fluid rounded"
+                                            width="100" height="100" alt="Ảnh minh chứng">
+                                        <p class="mt-2 text-muted">Ảnh minh chứng cho tố cáo của bạn.</p>
+                                    @else
+                                        <p class="text-warning">Không có ảnh minh chứng</p>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="mb-3">
                             <label class="form-label" for="status">Trạng thái của tố cáo:</label>
