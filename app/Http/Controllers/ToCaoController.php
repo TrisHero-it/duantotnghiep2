@@ -96,7 +96,7 @@ class ToCaoController extends Controller
             }
         }
 
-        return redirect()->route('admin.tocao.index')->with('success', 'Complaint status updated successfully.');
+        return redirect()->route('admin.tocao.index')->with('success', 'Trạng thái đơn tố cáo đã được cập nhật thành công.');
     }
 
 
