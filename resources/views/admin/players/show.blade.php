@@ -108,7 +108,40 @@
             </div>
         </div>
     </div>
-    <div class="col-xl-8"></div>
+    <div class="col-xl-8">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col">
+                        <h5>Store Visitors</h5>
+                    </div>
+                    <div class="col-auto text-end">
+                        <span>This Month</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row mb-2">
+                    <div class="col-auto">
+                        <h4 class="m-0">563,756<i
+                                class="feather icon-arrow-up text-c-green"></i></h4>
+                        <span>Visits per Day</span>
+                    </div>
+                    <div class="col-auto">
+                        <h4 class="m-0">78,569<i class="feather icon-arrow-down text-c-red"></i>
+                        </h4>
+                        <span>Total Visitors</span>
+                    </div>
+                    <div class="col">
+                        <h4 class="m-0">40.05%<i class="feather icon-arrow-up text-c-green"></i>
+                        </h4>
+                        <span>Bounce Rate</span>
+                    </div>
+                </div>
+                <div id="site-visitor-chart" style="height:250px;width:100%;"></div>
+            </div>
+        </div>
+    </div>
     <div class="col-xl-12"></div>
     <div class="col-xl-3 col-md-6">
         <div class="card prod-p-card bg-c-red">
