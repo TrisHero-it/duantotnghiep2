@@ -73,9 +73,9 @@ class ToCaoController extends Controller
             'trang_thai' => 'required|in:Chờ xử lí,Đã Duyệt,Hủy',
         ]);
 
-        $complaint->update([
-            'trang_thai' => $request->trang_thai,
-        ]);
+        if ($complaint->trang_thai === 'Đã Duyệt' && $request->trang_thai !== 'Đã Duyệt') {
+            return redirect()->route('admin.tocao.index')->with('error', 'Không thể cập nhật trạng thái từ "Đã Duyệt" sang trạng thái khác.');
+        }
 
         $user = TaiKhoan::find($complaint->id_player);
         if ($user) {
