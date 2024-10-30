@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PlayerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ToCaoController;
 /*
@@ -14,11 +15,15 @@ use App\Http\Controllers\ToCaoController;
 */
 
 Route::get('/', function () {
-    return view('admin.layout.app');
+    return view('admin.layouts.app');
 });
 
+<<<<<<< HEAD
 Route::get('/to-caos', [ToCaoController::class, 'index'])->name('tocao.index');
 Route::delete('/to-caos/{complaint}', [ToCaoController::class, 'destroy'])->name('tocaos.destroy');
 Route::patch('/to-caos/{complaint}', [ToCaoController::class, 'updateStatus'])->name('tocao.updateStatus');
 Route::get('/to-caos/add', [ToCaoController::class, 'create'])->name('tocao.add');
 Route::post('/to-caos/add', [ToCaoController::class, 'store'])->name('tocao.store');
+=======
+Route::resource('players', PlayerController::class);
+>>>>>>> 4f163ff99cc6fe1973914636ef419a1fb4ff2e47
