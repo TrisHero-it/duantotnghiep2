@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Player extends Model
 {
     use HasFactory;
+
+    public function taikhoan()
+    {
+        return $this->belongsTo(TaiKhoan::class, 'tai_khoan_id', 'id');
+    }
 }
