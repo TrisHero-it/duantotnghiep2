@@ -142,7 +142,190 @@
             </div>
         </div>
     </div>
-    <div class="col-xl-12"></div>
+    <div class="col-xl-12">
+        <div class="card table-card">
+            <div class="card-header">
+                <h5>Advertising campaign monitor</h5>
+            </div>
+            <div class="card-body px-0 py-0">
+                <div id="traffic-chart" style="height:400px;"></div>
+                <div class="table-responsive">
+                    <div class="session-scroll" style="height:380px;position:relative;">
+                        <table class="table table-hover m-b-0">
+                            <thead>
+                                <tr>
+                                    <th><span>Campaign date</span></th>
+                                    <th><span>Click <a class="help" data-bs-toggle="popover"
+                                                title="Popover title"
+                                                data-bs-content="And here's some amazing content. It's very engaging. Right?"><i
+                                                    class="feather icon-help-circle f-16"></i></a></span>
+                                    </th>
+                                    <th><span>Cost <a class="help" data-bs-toggle="popover"
+                                                title="Popover title"
+                                                data-bs-content="And here's some amazing content. It's very engaging. Right?"><i
+                                                    class="feather icon-help-circle f-16"></i></a></span>
+                                    </th>
+                                    <th><span>CTR <a class="help" data-bs-toggle="popover"
+                                                title="Popover title"
+                                                data-bs-content="And here's some amazing content. It's very engaging. Right?"><i
+                                                    class="feather icon-help-circle f-16"></i></a></span>
+                                    </th>
+                                    <th><span>ARPU <a class="help" data-bs-toggle="popover"
+                                                title="Popover title"
+                                                data-bs-content="And here's some amazing content. It's very engaging. Right?"><i
+                                                    class="feather icon-help-circle f-16"></i></a></span>
+                                    </th>
+                                    <th><span>ECPI <a class="help" data-bs-toggle="popover"
+                                                title="Popover title"
+                                                data-bs-content="And here's some amazing content. It's very engaging. Right?"><i
+                                                    class="feather icon-help-circle f-16"></i></a></span>
+                                    </th>
+                                    <th><span>ROI <a class="help" data-bs-toggle="popover"
+                                                title="Popover title"
+                                                data-bs-content="And here's some amazing content. It's very engaging. Right?"><i
+                                                    class="feather icon-help-circle f-16"></i></a></span>
+                                    </th>
+                                    <th><span>Revenue <a class="help" data-bs-toggle="popover"
+                                                title="Popover title"
+                                                data-bs-content="And here's some amazing content. It's very engaging. Right?"><i
+                                                    class="feather icon-help-circle f-16"></i></a></span>
+                                    </th>
+                                    <th><span>Conversions <a class="help"
+                                                data-bs-toggle="popover" title="Popover title"
+                                                data-bs-content="And here's some amazing content. It's very engaging. Right?"><i
+                                                    class="feather icon-help-circle f-16"></i></a></span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Total and average</td>
+                                    <td>1300</td>
+                                    <td>1025</td>
+                                    <td>14005</td>
+                                    <td>95,3%</td>
+                                    <td>29,7%</td>
+                                    <td>3,25</td>
+                                    <td>2:30</td>
+                                    <td>45.5%</td>
+                                </tr>
+                                <tr>
+                                    <td>8-11-2016</td>
+                                    <td>786</td>
+                                    <td>485</td>
+                                    <td>769</td>
+                                    <td>45,3%</td>
+                                    <td>6,7%</td>
+                                    <td>8,56</td>
+                                    <td>10:55</td>
+                                    <td>33.8%</td>
+                                </tr>
+                                <tr>
+                                    <td>15-10-2016</td>
+                                    <td>786</td>
+                                    <td>523</td>
+                                    <td>736</td>
+                                    <td>78,3%</td>
+                                    <td>6,6%</td>
+                                    <td>7,56</td>
+                                    <td>4:30</td>
+                                    <td>76.8%</td>
+                                </tr>
+                                <tr>
+                                    <td>8-8-2017</td>
+                                    <td>624</td>
+                                    <td>436</td>
+                                    <td>756</td>
+                                    <td>78,3%</td>
+                                    <td>6,4%</td>
+                                    <td>9,45</td>
+                                    <td>9:05</td>
+                                    <td>8.63%</td>
+                                </tr>
+                                <tr>
+                                    <td>11-12-2017</td>
+                                    <td>423</td>
+                                    <td>123</td>
+                                    <td>756</td>
+                                    <td>78,6%</td>
+                                    <td>45,6%</td>
+                                    <td>6,85</td>
+                                    <td>7:45</td>
+                                    <td>33.8%</td>
+                                </tr>
+                                <tr>
+                                    <td>1-6-2015</td>
+                                    <td>465</td>
+                                    <td>463</td>
+                                    <td>456</td>
+                                    <td>68,6%</td>
+                                    <td>76,6%</td>
+                                    <td>7,56</td>
+                                    <td>8:45</td>
+                                    <td>39.8%</td>
+                                </tr>
+                                <tr>
+                                    <td>8-11-2016</td>
+                                    <td>786</td>
+                                    <td>485</td>
+                                    <td>769</td>
+                                    <td>45,3%</td>
+                                    <td>6,7%</td>
+                                    <td>8,56</td>
+                                    <td>10:55</td>
+                                    <td>33.8%</td>
+                                </tr>
+                                <tr>
+                                    <td>15-10-2016</td>
+                                    <td>786</td>
+                                    <td>523</td>
+                                    <td>736</td>
+                                    <td>78,3%</td>
+                                    <td>6,6%</td>
+                                    <td>7,56</td>
+                                    <td>4:30</td>
+                                    <td>76.8%</td>
+                                </tr>
+                                <tr>
+                                    <td>8-8-2017</td>
+                                    <td>624</td>
+                                    <td>436</td>
+                                    <td>756</td>
+                                    <td>78,3%</td>
+                                    <td>6,4%</td>
+                                    <td>9,45</td>
+                                    <td>9:05</td>
+                                    <td>8.63%</td>
+                                </tr>
+                                <tr>
+                                    <td>11-12-2017</td>
+                                    <td>423</td>
+                                    <td>123</td>
+                                    <td>756</td>
+                                    <td>78,6%</td>
+                                    <td>45,6%</td>
+                                    <td>6,85</td>
+                                    <td>7:45</td>
+                                    <td>33.8%</td>
+                                </tr>
+                                <tr>
+                                    <td>1-6-2015</td>
+                                    <td>465</td>
+                                    <td>463</td>
+                                    <td>456</td>
+                                    <td>68,6%</td>
+                                    <td>76,6%</td>
+                                    <td>7,56</td>
+                                    <td>8:45</td>
+                                    <td>39.8%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="col-xl-3 col-md-6">
         <div class="card prod-p-card bg-c-red">
             <div class="card-body">
