@@ -161,7 +161,23 @@
             </div>
         </div>
     </div>
-    <div class="col-xl-3 col-md-6"></div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card prod-p-card bg-c-yellow">
+            <div class="card-body">
+                <div class="row align-items-center m-b-25">
+                    <div class="col">
+                        <h6 class="m-b-5 text-white">Product Sold</h6>
+                        <h3 class="m-b-0 text-white">6,784</h3>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-tags text-c-yellow f-18"></i>
+                    </div>
+                </div>
+                <p class="m-b-0 text-white"><span
+                        class="label label-warning m-r-10">+52%</span>From Previous Month</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 @endsection
