@@ -13,31 +13,34 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-12 col-xl-4">
+                    <div class="col-md-6 col-xl-4">
                         <div class="card">
-                            <div class="widget-profile-card-3">
-                                <img class="img-fluid img-thumbnail" src="{{ Storage::url($player -> taiKhoan -> anh_dai_dien) }}"
-                                    alt="Profile-user">
+                            <div class="widget-profile-card-1">
+                                <img class="img-fluid" src="{{ asset('assets/images/widget/slider7.jpg') }}"
+                                    alt="card-style-1">
+                                <div class="middle-user">
+                                    <img class="img-fluid img-thumbnail"
+                                        src="{{ Storage::url($player -> taiKhoan -> anh_dai_dien) }}" alt="Profile-user">
+                                </div>
                             </div>
                             <div class="card-body text-center">
                                 <h3>{{ $player -> taiKhoan -> ten }}</h3>
                                 <p>{{ $player -> taiKhoan -> biet_danh }}</p>
                                 <p>{{ $player -> trang_thai_player }}</p>
-                                
                             </div>
                             <div class="card-footer bg-inverse">
                                 <div class="row text-center">
                                     <div class="col">
                                         <h4>400</h4>
-                                        <span>Đơn thành công</span>
+                                        <span>Quê Quán</span>
                                     </div>
                                     <div class="col">
                                         <h4>90</h4>
-                                        <span>Projects</span>
+                                        <span>Tuổi</span>
                                     </div>
                                     <div class="col">
-                                        <h4>{{ $soNguoiTheoDoi  }}</h4>
-                                        <span>Số người theo dõi</span>
+                                        <h4>{{ $player -> taiKhoan -> gioi_tinh }}</h4>
+                                        <span>Giới tính</span>
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +77,7 @@
                                 </div>
                                 <div class="mb-3 col-md-2">
                                     <label class="form-label" for="">Giới tính</label>
-                                    <input type="text" class="form-control" value="{{ $player -> taiKhoan -> gioi_tinh }}">
+                                    <input type="text" class="form-control" value="">
                                 </div>
                             </div>
                             <div class="row">
@@ -159,11 +162,11 @@
                             <div class="card-body">
                                 <div class="row align-items-center m-b-25">
                                     <div class="col">
-                                        <h6 class="m-b-5 text-white">adsfasd</h6>
+                                        <h6 class="m-b-5 text-white">Số người theo dõi</h6>
                                         <h3 class="m-b-0 text-white">{{ $soNguoiTheoDoi  }}</h3>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-tags text-c-yellow f-18"></i>
+                                        <i class="fas fa-user text-c-yellow f-18"></i>
                                     </div>
                                 </div>
                                 <p class="m-b-0 text-white"><span
