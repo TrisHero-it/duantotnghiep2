@@ -9,7 +9,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- Form cập nhật thông tin tố cáo -->
-                    <form action="{{ route('admin.tocao.updateStatus', $complaint->id) }}" method="POST">
+                    <form action="{{ route('admin.tocao.updateStatus', $complaint->id) }}" method="POST"
+                        onsubmit="return confirmUpdate();">
                         @csrf
                         @method('PATCH')
 
@@ -50,6 +51,11 @@
 
                         <button type="submit" class="btn btn-primary">Cập nhật</button>
                     </form>
+                    <script>
+                        function confirmUpdate() {
+                            return confirm("Bạn có muốn cập nhật trạng thái không?");
+                        }
+                    </script>
                 </div>
             </div>
         </div>

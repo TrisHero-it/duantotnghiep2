@@ -17,7 +17,7 @@ class ToCaoController extends Controller
 
     public function create()
     {
-        $players = TaiKhoan::where('phan_quyen_id', 2)->get();
+        $players = TaiKhoan::where('phan_quyen_id', 3)->get();
 
         return view('admin.to-caos.add', compact('players'));
     }
@@ -31,12 +31,19 @@ class ToCaoController extends Controller
 
     public function store(Request $request)
     {
+
+        $user = auth()->user(); // Lấy thông tin người dùng hiện tại
+        if (empty($user->cccd)) {
+            return redirect()->back()->with('error', 'Bạn cần cập nhật thông tin CCCD trước khi gửi tố cáo.');
+        }
+
+
         $request->validate([
             'id_player' => 'required|exists:tai_khoans,id',
             'noi_dung_to_cao' => 'required|string|max:5000',
         ]);
 
-        $fakeUserId = 1;
+        $fakeUserId = 4;
 
         ToCao::create([
             'id_nguoi_dung' => $fakeUserId,

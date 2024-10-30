@@ -1,8 +1,9 @@
 @extends('admin.layout.app')
 
-
 @section('content')
     <div class="container">
+
+
         <h2>Bảng tố cáo</h2>
 
         @if (session('success'))
@@ -11,7 +12,13 @@
             </div>
         @endif
 
-        <form action="{{ route('admin.tocao.store') }}" method="POST">
+        @if (session('error'))
+            <div class="alert alert-danger" data-toggle="modal" data-target="#updateInfoModal">
+                {{ session('error') }}
+            </div>
+        @endif
+
+        <form action="{{ route('admin.tocao.store') }}" method="POST" id="complaintForm">
             @csrf
             <div class="form-group">
                 <label for="id_player">Chọn người chơi mà bạn muốn tố cáo:</label>
@@ -27,7 +34,7 @@
             </div>
 
             <div class="form-group">
-                <label for="complaint_details">Nội dung tố cáo:</label>
+                <label for="noi_dung_to_cao">Nội dung tố cáo:</label>
                 <textarea name="noi_dung_to_cao" id="noi_dung_to_cao" class="form-control" rows="5" required></textarea>
                 @error('noi_dung_to_cao')
                     <span class="text-danger">{{ $message }}</span>
