@@ -32,9 +32,9 @@ class ToCaoController extends Controller
 
     public function store(Request $request)
     {
-        $fakeUserId = 3;  // Giả lập ID người dùng là 3
+        $fakeUserId = 3;
 
-        // Xác thực các trường trong request
+
         $request->validate([
             'id_player' => 'required|exists:tai_khoans,id',
             'noi_dung_to_cao' => 'required|string|max:5000',
@@ -43,18 +43,18 @@ class ToCaoController extends Controller
         $imagePath = null;
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $imageName = time() . '_' . $image->getClientOriginalName(); // Tạo tên duy nhất cho ảnh
+            $imageName = time() . '_' . $image->getClientOriginalName();
 
-            // Lưu file vào thư mục 'public/images' trong storage
+
             $imagePath = $image->storeAs('public/images', $imageName);
 
-            // Lấy đường dẫn có thể truy cập công khai
+
             $imagePath = Storage::url($imagePath);
         }
 
-        // Lưu tố cáo vào cơ sở dữ liệu với ID người dùng giả
+
         ToCao::create([
-            'id_nguoi_dung' => $fakeUserId,  // Sử dụng ID giả
+            'id_nguoi_dung' => $fakeUserId,
             'id_player' => $request->id_player,
             'id_tin_nhan' => $request->input('id_tin_nhan', 1),
             'tieu_de_to_cao' => $request->tieu_de_to_cao,
@@ -63,7 +63,7 @@ class ToCaoController extends Controller
             'trang_thai' => 'Chờ xử lí',
         ]);
 
-        // Chuyển hướng với thông báo thành công
+
         return redirect()->route('admin.tocao.index')->with('success', 'Đã gửi tố cáo thành công.');
     }
 
