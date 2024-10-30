@@ -7,11 +7,20 @@
                 <h5 class="mb-0">Tố cáo người chơi</h5>
                 <a href="{{ route('admin.tocao.add') }}" class="btn btn-primary">Thêm tố cáo</a>
             </div>
+            @if (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
+
+
+
             @if (session('success'))
                 <div class="alert alert-success">
                     {{ session('success') }}
                 </div>
             @endif
+
             <div class="card-body">
                 <div class="dt-responsive table-responsive">
                     <table id="simpletable" class="table table-striped table-bordered nowrap">

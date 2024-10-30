@@ -6,17 +6,20 @@
 
         <h2>Bảng tố cáo</h2>
 
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+
+
+
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
         @endif
 
-        @if (session('error'))
-            <div class="alert alert-danger" data-toggle="modal" data-target="#updateInfoModal">
-                {{ session('error') }}
-            </div>
-        @endif
 
         <form action="{{ route('admin.tocao.store') }}" method="POST" enctype="multipart/form-data" id="complaintForm">
             @csrf
@@ -53,7 +56,8 @@
 
             <div class="form-group">
                 <label for="noi_dung_to_cao">Nội dung tố cáo:</label>
-                <textarea name="noi_dung_to_cao" id="noi_dung_to_cao" class="form-control" rows="5" required></textarea>
+                <textarea name="noi_dung_to_cao" id="noi_dung_to_cao" class="form-control" rows="5"
+                    placeholder="Nội dung tố cáo..." required></textarea>
                 @error('noi_dung_to_cao')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
