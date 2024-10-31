@@ -100,7 +100,15 @@
                             <li class=""><a href="{{route('admin.phanquyen.create')}}" class="">Thêm mới</a></li>
                         </ul>
                     </li>
+                    <li data-username="comments" class="nav-item"><a href="{{route('admin.danhgia.index')}}"
+                            class="nav-link"><span class="pcoded-micon"><i
+                                    class="feather icon-aperture"></i></span><span
+                                class="pcoded-mtext">Đánh giá</span></a></li>
+
+                    
                 </ul>
+
+                
             </div>
 
         </div>
