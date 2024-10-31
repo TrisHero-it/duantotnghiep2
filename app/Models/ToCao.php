@@ -13,7 +13,10 @@ class ToCao extends Model
     protected $fillable = [
         'id_nguoi_dung',
         'id_player',
+        'id_tin_nhan',
+        'tieu_de_to_cao',
         'noi_dung_to_cao',
+        'image_path',
         'trang_thai'
     ];
 
