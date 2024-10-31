@@ -193,7 +193,7 @@
                                         <div class="row">
                                             <div class="col-6 p-r-0">
                                                 <h6 class="my-3"><i class="feather icon-monitor f-20 me-2"
-                                                        style="color:#dc67ce"></i>66.6%<span
+                                                        style="color:#dc67ce"></i><span
                                                         class="text-c-green ms-2 f-14"><i
                                                             class="feather icon-arrow-up"></i>2%</span></h6>
                                                 <h6 class="my-3"><i class="feather icon-tablet f-20 me-2"
@@ -201,7 +201,7 @@
                                                         class="text-c-red ms-2 f-14"><i
                                                             class="feather icon-arrow-down"></i>3%</span></h6>
                                                 <h6 class="my-3"><i class="feather icon-smartphone f-20 me-2"
-                                                        style="color:#67b7dc"></i>32.8%<span
+                                                        style="color:#67b7dc"></i>Doanh thu trung bình<span
                                                         class="text-c-green ms-2 f-14"><i
                                                             class="feather icon-arrow-up"></i>8%</span></h6>
                                             </div>
