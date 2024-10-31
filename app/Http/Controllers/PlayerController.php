@@ -19,7 +19,7 @@ class PlayerController extends Controller
 
     public function bieudo()
     {
-        $playerId = 2; // ID của player bạn muốn thống kê
+        $playerId = 1; // ID của player bạn muốn thống kê
 
         // Tính tổng số giờ thuê theo từng ngày
         $chartData = LichSuThuePlayer::select(
@@ -27,6 +27,7 @@ class PlayerController extends Controller
             DB::raw('SUM(gio_thue) as total_hours')
         )
             ->where('player_id', $playerId)
+            ->where('trang_thai_thue', 'success')
             ->groupBy('date')
             ->orderBy('date')
             ->get()
@@ -43,6 +44,7 @@ class PlayerController extends Controller
             DB::raw('SUM(gia_player * gio_thue) as total_earnings') // Tính tổng tiền kiếm được
         )
             ->where('player_id', $playerId)
+            ->where('trang_thai_thue', 'success')
             ->groupBy('date')
             ->orderBy('date')
             ->get()
