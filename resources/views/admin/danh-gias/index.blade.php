@@ -36,33 +36,44 @@
     </form>
 
     <h3 class="mb-3">Danh sách đánh giá theo từng player</h3>
-    <div class="ratings-list">
+    <div class="row">
         @foreach($danhGias->groupBy('player_id') as $playerId => $danhGiasForPlayer)
-            <div class="player-rating mb-4 p-4 border rounded shadow-lg bg-light">
-                <h4 class="text-primary">Player ID: {{ $playerId }}</h4>
+            <div class="col-md-4 mb-4">
+                <div class="player-rating border rounded shadow-sm bg-light p-3">
+                    <h4 class="text-primary">Player ID: {{ $playerId }}</h4>
 
-                <div class="average-rating text-center mb-3">
                     @php
-                        $averageScore = $danhGiasForPlayer->avg('so_sao'); // Tính điểm trung bình
+                        // Tính điểm trung bình và tỷ lệ phần trăm
+                        $averageScore = $danhGiasForPlayer->avg('so_sao');
+                        $totalReviews = $danhGiasForPlayer->count();
+                        $fiveStarCount = $danhGiasForPlayer->where('so_sao', 5)->count();
+                        $fourStarCount = $danhGiasForPlayer->where('so_sao', 4)->count();
+                        $fiveStarPercentage = $totalReviews > 0 ? ($fiveStarCount / $totalReviews) * 100 : 0;
+                        $fourStarPercentage = $totalReviews > 0 ? ($fourStarCount / $totalReviews) * 100 : 0;
                     @endphp
-                    <h5 class="font-weight-bold">Sao đánh giá trung bình: <span class="average-score">{{ number_format($averageScore, 1) }}</span> / 5</h5>
-                </div>
 
-                <div class="player-stars">
-                    @foreach ($danhGiasForPlayer as $danhGia)
-                        <div class="rating-item mb-3 p-3 border rounded bg-white shadow-sm">
-                            <div class="rating-header d-flex justify-content-between align-items-center">
-                                <span class="player-name font-weight-bold text-success">{{ $danhGia->ten_player_ao }}</span>
-                                <div class="stars">
-                                    @for ($i = 1; $i <= $danhGia->so_sao; $i++)
-                                        <span class="star filled">★</span>
-                                    @endfor
+                    <div class="average-rating text-center mb-2">
+                        <h5 class="font-weight-bold">Sao đánh giá trung bình: <span class="average-score">{{ number_format($averageScore, 1) }}</span> / 5</h5>
+                        <p>5 sao: {{ $fiveStarCount }} ({{ number_format($fiveStarPercentage, 1) }}%)</p>
+                        <p>4 sao: {{ $fourStarCount }} ({{ number_format($fourStarPercentage, 1) }}%)</p>
+                    </div>
+
+                    <div class="player-stars">
+                        @foreach ($danhGiasForPlayer as $danhGia)
+                            <div class="rating-item border rounded bg-white p-2 mb-2">
+                                <div class="rating-header d-flex justify-content-between align-items-center">
+                                    <span class="player-name font-weight-bold text-success">{{ $danhGia->ten_player_ao }}</span>
+                                    <div class="stars">
+                                        @for ($i = 1; $i <= $danhGia->so_sao; $i++)
+                                            <span class="star filled">★</span>
+                                        @endfor
+                                    </div>
                                 </div>
+                                <p class="comment mt-2">{{ $danhGia->nhan_xet }}</p>
+                                <small class="timestamp text-muted">{{ $danhGia->created_at ? $danhGia->created_at->format('d/m/Y H:i:s') : 'Chưa có thời gian' }}</small>
                             </div>
-                            <p class="comment mt-2">{{ $danhGia->nhan_xet }}</p>
-                            <small class="timestamp text-muted">{{ $danhGia->created_at ? $danhGia->created_at->format('d/m/Y H:i:s') : 'Chưa có thời gian' }}</small>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
             </div>
         @endforeach
@@ -75,21 +86,18 @@
     }
     .average-score {
         font-weight: bold;
-        font-size: 30px; 
+        font-size: 24px; 
         color: #28a745; 
     }
     .stars {
         color: gold;
-        font-size: 24px; 
+        font-size: 20px; 
     }
     .star {
         cursor: pointer;
     }
     .star.filled {
         color: gold;
-    }
-    .ratings-list {
-        margin-top: 20px;
     }
     .player-rating {
         background-color: #f9f9f9; 
