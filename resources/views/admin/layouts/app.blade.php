@@ -78,7 +78,7 @@
                                         class="pcoded-badge label label-danger">NEW</span></a></li>
                         </ul>
                     </li>
-<<<<<<< HEAD:resources/views/admin/layout/app.blade.php
+
                     <li data-username="comments" class="nav-item"><a href="!#" class="nav-link"><span
                                 class="pcoded-micon"><i class="feather icon-aperture"></i></span><span
                                 class="pcoded-mtext">dùng cái này nếu chỉ list ra</span></a></li>
@@ -87,14 +87,16 @@
                         <a href="#!" class="nav-link"><span class="pcoded-micon"><i
                                     class="feather icon-credit-card"></i></span><span class="pcoded-mtext">Dùng cái này
                                 nếu có add</span></a>
-=======
+
                     <li data-username="dashboard default ecommerce sales Helpdesk ticket CRM analytics project"
                         class="nav-item pcoded-hasmenu">
                         <a href="#!" class="nav-link"><span class="pcoded-micon"><i
-                                    class="fas fa-user-secret"></i></span><span class="pcoded-mtext">Quản lí player</span></a>
->>>>>>> 4f163ff99cc6fe1973914636ef419a1fb4ff2e47:resources/views/admin/layouts/app.blade.php
+                                    class="fas fa-user-secret"></i></span><span class="pcoded-mtext">Quản lí
+                                player</span></a>
+
                         <ul class="pcoded-submenu">
-                            <li class=""><a href="{{ route('admin.players.index') }}" class="">Danh sách</a></li>
+                            <li class=""><a href="{{ route('admin.players.index') }}" class="">Danh sách</a>
+                            </li>
                         </ul>
                     </li>
 
@@ -106,7 +108,8 @@
                         <ul class="pcoded-submenu">
                             <li class=""><a href="{{ route('admin.tocao.index') }}" class="">Danh sách</a>
                             </li>
-                            <li class=""><a href="{{ route('admin.tocao.add') }}" class="">Thêm mới</a></li>
+                            <li class=""><a href="{{ route('admin.tocao.add') }}" class="">Thêm mới</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
