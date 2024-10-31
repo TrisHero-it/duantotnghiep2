@@ -41,7 +41,6 @@
                                 <td>{{ $taikhoan->email }}</td>
                                 <td>{{ $taikhoan->sdt }}</td>
                                 <td>
-                                <a href="{{ route('admin.taikhoans.edit', $taikhoan->id) }}"class="btn btn-warning">Chỉnh sửa</a>
                                 <form action="{{ route('admin.taikhoans.delete', $taikhoan->id) }}" method="POST" style="display:inline;" onclick="confirm('Bạn có chắc muốn xóa không?')">
                                     @csrf
                                     @method('DELETE')

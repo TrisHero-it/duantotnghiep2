@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TaiKhoan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 
 class TaiKhoanController extends Controller
@@ -12,6 +13,7 @@ class TaiKhoanController extends Controller
     public function index(Request $request)
     {
         $taikhoans = TaiKhoan::all();
+        
         return view('admin.taikhoans.index', compact('taikhoans'));
     }
     public function create()
@@ -44,29 +46,7 @@ class TaiKhoanController extends Controller
         $data = TaiKhoan::create($anh_dai_diens);
         return redirect()->route('admin.taikhoans.index')->with('success', 'Thêm tài khoản thành công!');
     }
-    public function edit(Request $request, $id)
-    {
-        $taikhoans = TaiKhoan::find($id);
-        return view('admin.taikhoans.edit', compact('taikhoans'));
-    }
-
-    public function update(Request $request, $id)
-    {
-        $taikhoans = TaiKhoan::find($id);
-        $anh_dai_dien = $request->except('anh_dai_dien');
-
-        if ($request->hasFile('anh_dai_dien')) {
-            if ($taikhoans->anh_dai_dien) {
-                Storage::disk("public")->delete($taikhoans->anh_dai_dien);
-                $anh_dai_dien['anh_dai_dien'] = Storage::put(self::path_upload, $request->file('anh_dai_dien'));
-            } else {
-                $anh_dai_dien['anh_dai_dien'] = $taikhoans->anh_dai_dien;
-            }
-        }
-
-        $taikhoans->update($anh_dai_dien);
-        return redirect()->route('admin.taikhoans.index');
-    }
+    
     public function destroy($id)
     {
         // Tìm tài khoản theo ID

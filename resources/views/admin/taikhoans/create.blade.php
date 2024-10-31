@@ -49,12 +49,13 @@
             <input type="file" name="anh_dai_dien" class="form-control"  required>
         </div>
         <div class="form-group">
-            <label for="bi_cam">Bị cấm</label>
+            <label for="bi_cam">Vai trò</label>
             <select name="bi_cam" class="form-control">
-                <option value="1">Có</option>
-                <option value="2">Không</option>
+                <option value="1">Admin</option>
+                <option value="2">Người dùng</option>
             </select>
         </div>
+        
 
         <button type="submit" class="btn btn-success">Thêm tài khoản</button>
     </form>

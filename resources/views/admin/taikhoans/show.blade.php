@@ -62,7 +62,7 @@
                         </div>
                         <div class="form-group">
                             <label for="phan_quyen_id">Vai trò</label>
-                            <input type="text" class="form-control" value="{{ $taikhoan->bi_cam ? 'Có' : 'Không' }}" readonly>
+                            <input type="text" class="form-control" value="{{ $taikhoan->phanquyens ? 'Admin' : 'Người dùng' }}" readonly>
                         </div>
                         <div class="form-group">
                             <label for="created_at">Ngày tạo:</label>
