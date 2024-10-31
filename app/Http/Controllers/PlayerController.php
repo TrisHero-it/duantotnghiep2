@@ -7,6 +7,7 @@ use App\Models\Player;
 use App\Models\TheoDoiPlayer;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PlayerController extends Controller
 {
@@ -16,6 +17,32 @@ class PlayerController extends Controller
         return view('admin.players.index', compact('players'));
     }
 
+    public function bieudo()
+    {
+        $playerId = 1;
+        $chartData = LichSuThuePlayer::select(
+            DB::raw('DATE(created_at) as date'),
+            DB::raw('SUM(gio_thue) as total_hours')
+        )
+            ->where('player_id', $playerId)
+            ->groupBy('date')
+            ->orderBy('date')
+            ->get()
+            ->map(function ($data) {
+                return [
+                    'date' => $data->date,
+                    'total_hours' => $data->total_hours
+                ];
+            });
+
+        $labels = $chartData->pluck('date')->map(function ($date) {
+            return \Carbon\Carbon::parse($date)->format('d/m/Y');
+        });
+        $data = $chartData->pluck('total_hours');
+
+        return view('admin.players.bieudoduong', compact('labels', 'data'));
+    }
+
     public function create()
     {
         return view('admin.players.create');
@@ -23,7 +50,7 @@ class PlayerController extends Controller
 
     public function store(Request $request)
     {
-    
+
         return redirect()->route('players.index');
     }
 
@@ -44,7 +71,7 @@ class PlayerController extends Controller
 
         // Tổng số người theo dõi (cũng cần kiểm tra trạng thái)
         $soNguoiTheoDoi = TheoDoiPlayer::where('player_id', $id)
-        ->count('tai_khoan_id');
+            ->count('tai_khoan_id');
 
         // Thống kê số người thuê duy nhất
         // $soNguoiThue = LichSuThuePlayer::where('player_id', $id)

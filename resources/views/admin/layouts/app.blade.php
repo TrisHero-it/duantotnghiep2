@@ -137,6 +137,7 @@
     <script src="{{ asset('assets/js/pcoded.min.js') }}"></script>
     <script src="{{ asset('assets/js/menu-setting.js') }}"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     @yield('test')
 </body>
 

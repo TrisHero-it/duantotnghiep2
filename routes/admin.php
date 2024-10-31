@@ -28,3 +28,4 @@ Route::get('/to-caos/{complaint}', [ToCaoController::class, 'show'])->name('toca
 
 
 Route::resource('players', PlayerController::class);
+Route::get('/bieu-do-duong', [PlayerController::class, 'bieudo']);
