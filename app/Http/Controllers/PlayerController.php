@@ -19,7 +19,9 @@ class PlayerController extends Controller
 
     public function bieudo()
     {
-        $playerId = 1;
+        $playerId = 2; // ID của player bạn muốn thống kê
+
+        // Tính tổng số giờ thuê theo từng ngày
         $chartData = LichSuThuePlayer::select(
             DB::raw('DATE(created_at) as date'),
             DB::raw('SUM(gio_thue) as total_hours')
@@ -35,12 +37,35 @@ class PlayerController extends Controller
                 ];
             });
 
+        // Tính tổng số tiền kiếm được theo từng ngày
+        $chartDataTongTien = LichSuThuePlayer::select(
+            DB::raw('DATE(created_at) as date'),
+            DB::raw('SUM(gia_player * gio_thue) as total_earnings') // Tính tổng tiền kiếm được
+        )
+            ->where('player_id', $playerId)
+            ->groupBy('date')
+            ->orderBy('date')
+            ->get()
+            ->map(function ($data) {
+                return [
+                    'date' => $data->date,
+                    'total_earnings' => $data->total_earnings
+                ];
+            });
+
+        // Tạo mảng labels và data từ dữ liệu vừa lấy cho số giờ thuê
         $labels = $chartData->pluck('date')->map(function ($date) {
             return \Carbon\Carbon::parse($date)->format('d/m/Y');
         });
         $data = $chartData->pluck('total_hours');
 
-        return view('admin.players.bieudoduong', compact('labels', 'data'));
+        // Tạo mảng labels và data từ dữ liệu vừa lấy cho tổng số tiền
+        $labelsTongTien = $chartDataTongTien->pluck('date')->map(function ($date) {
+            return \Carbon\Carbon::parse($date)->format('d/m/Y'); // Định dạng ngày
+        });
+        $dataTongTien = $chartDataTongTien->pluck('total_earnings');
+
+        return view('admin.players.bieudoduong', compact('labels', 'data', 'labelsTongTien', 'dataTongTien'));
     }
 
     public function create()
