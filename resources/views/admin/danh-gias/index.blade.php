@@ -4,10 +4,10 @@
 
 @section('content')
 <div class="container">
-    <h1 class="text-center mb-4">Đánh giá 5 sao</h1>
+    <h1 class="text-center mb-4">Đánh giá player</h1>
 
     <!-- Form Tìm Kiếm -->
-    <form method="GET" action="{{ route('admin.danhgia.index') }}" class="mb-4">
+    <!-- <form method="GET" action="{{ route('admin.danhgia.index') }}" class="mb-4">
         <div class="row">
             <div class="col-md-6 mb-3">
                 <div class="input-group">
@@ -33,42 +33,43 @@
                 </div>
             </div>
         </div>
-    </form>
+    </form> -->
 
     <h3 class="mb-3">Danh sách đánh giá theo từng player</h3>
     <div class="row">
         @foreach($danhGias->groupBy('player_id') as $playerId => $danhGiasForPlayer)
             <div class="col-md-4 mb-4">
                 <div class="player-rating border rounded shadow-sm bg-light p-3">
-                    <h4 class="text-primary">Player ID: {{ $playerId }}</h4>
-
                     @php
-                        // Tính điểm trung bình và tỷ lệ phần trăm
-                        $averageScore = $danhGiasForPlayer->avg('so_sao');
+                        // Tính tổng số đánh giá và số sao
                         $totalReviews = $danhGiasForPlayer->count();
-                        $fiveStarCount = $danhGiasForPlayer->where('so_sao', 5)->count();
-                        $fourStarCount = $danhGiasForPlayer->where('so_sao', 4)->count();
-                        $fiveStarPercentage = $totalReviews > 0 ? ($fiveStarCount / $totalReviews) * 100 : 0;
-                        $fourStarPercentage = $totalReviews > 0 ? ($fourStarCount / $totalReviews) * 100 : 0;
+                        $starCounts = [
+                            1 => $danhGiasForPlayer->where('so_sao', 1)->count(),
+                            2 => $danhGiasForPlayer->where('so_sao', 2)->count(),
+                            3 => $danhGiasForPlayer->where('so_sao', 3)->count(),
+                            4 => $danhGiasForPlayer->where('so_sao', 4)->count(),
+                            5 => $danhGiasForPlayer->where('so_sao', 5)->count(),
+                        ];
                     @endphp
 
-                    <div class="average-rating text-center mb-2">
-                        <h5 class="font-weight-bold">Sao đánh giá trung bình: <span class="average-score">{{ number_format($averageScore, 1) }}</span> / 5</h5>
-                        <p>5 sao: {{ $fiveStarCount }} ({{ number_format($fiveStarPercentage, 1) }}%)</p>
-                        <p>4 sao: {{ $fourStarCount }} ({{ number_format($fourStarPercentage, 1) }}%)</p>
+                    <div class="average-rating mb-2">
+                        <h5 class="font-weight-bold">Tỷ lệ đánh giá</h5>
+                        <div class="star-rating">
+                            @for ($i = 1; $i <= 5; $i++)
+                                <div class="star-count">
+                                    <div class="star-label">{{ $i }} <span class="star filled">★</span>:</div>
+                                    <div class="bar">
+                                        <div class="percentage-bar" style="width: {{ $totalReviews > 0 ? ($starCounts[$i] / $totalReviews) * 100 : 0 }}%;"></div>
+                                    </div>
+                                    <div class="percentage">{{ $totalReviews > 0 ? number_format(($starCounts[$i] / $totalReviews) * 100, 1) : 0 }}%</div>
+                                </div>
+                            @endfor
+                        </div>
                     </div>
 
                     <div class="player-stars">
                         @foreach ($danhGiasForPlayer as $danhGia)
                             <div class="rating-item border rounded bg-white p-2 mb-2">
-                                <div class="rating-header d-flex justify-content-between align-items-center">
-                                    <span class="player-name font-weight-bold text-success">{{ $danhGia->ten_player_ao }}</span>
-                                    <div class="stars">
-                                        @for ($i = 1; $i <= $danhGia->so_sao; $i++)
-                                            <span class="star filled">★</span>
-                                        @endfor
-                                    </div>
-                                </div>
                                 <p class="comment mt-2">{{ $danhGia->nhan_xet }}</p>
                                 <small class="timestamp text-muted">{{ $danhGia->created_at ? $danhGia->created_at->format('d/m/Y H:i:s') : 'Chưa có thời gian' }}</small>
                             </div>
@@ -82,22 +83,33 @@
 
 <style>
     .average-rating {
-        text-align: center;
+        text-align: left;
     }
-    .average-score {
-        font-weight: bold;
-        font-size: 24px; 
-        color: #28a745; 
+    .star-rating {
+        display: flex;
+        flex-direction: column;
     }
-    .stars {
-        color: gold;
-        font-size: 20px; 
+    .star-count {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
     }
-    .star {
-        cursor: pointer;
+    .bar {
+        background-color: #e0e0e0;
+        border-radius: 5px;
+        height: 20px;
+        flex: 1;
+        margin: 0 10px;
+        position: relative;
     }
-    .star.filled {
-        color: gold;
+    .percentage-bar {
+        background-color: #28a745;
+        height: 100%;
+        border-radius: 5px;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
     .player-rating {
         background-color: #f9f9f9; 
@@ -113,21 +125,16 @@
         margin-bottom: 10px;
         background-color: #ffffff; 
     }
-    .rating-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .player-name {
-        font-weight: bold;
-        color: #007bff; 
-    }
     .comment {
         margin: 10px 0;
     }
     .timestamp {
         font-size: 12px;
         color: #888; 
+    }
+    .star {
+        color: gold; /* Màu ngôi sao */
+        font-size: 18px; /* Kích thước ngôi sao */
     }
     /* Tìm kiếm */
     .input-group {
