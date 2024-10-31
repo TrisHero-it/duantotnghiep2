@@ -12,13 +12,11 @@ class Player extends Model
     public $fillable = [
         "anh",
         "thong_tin",
-        "so_gio_duoc_thue",
         "so_nguoi_theo_doi",
         "gia_tien",
         "trang_thai_player",
         "tai_khoan_id",
         "so_tai_khoan",
-        "so_lan_duoc_thue",
     ];
 
     public function taiKhoan()
