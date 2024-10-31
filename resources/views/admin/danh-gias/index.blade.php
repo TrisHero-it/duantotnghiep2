@@ -8,23 +8,29 @@
 
     <!-- Form Tìm Kiếm -->
     <form method="GET" action="{{ route('admin.danhgia.index') }}" class="mb-4">
-        <div class="input-group mb-3">
-            <input type="text" name="query" class="form-control" placeholder="Nhập ID player để tìm kiếm..." value="{{ request('query') }}">
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="submit">Tìm kiếm ID</button>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group mb-3">
+                    <input type="text" name="query" class="form-control" placeholder="Nhập ID player để tìm kiếm..." value="{{ request('query') }}">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">Tìm kiếm ID</button>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="input-group">
-            <select name="star_rating" class="form-control">
-                <option value="">Chọn số sao</option>
-                <option value="1" {{ request('star_rating') == '1' ? 'selected' : '' }}>1 sao</option>
-                <option value="2" {{ request('star_rating') == '2' ? 'selected' : '' }}>2 sao</option>
-                <option value="3" {{ request('star_rating') == '3' ? 'selected' : '' }}>3 sao</option>
-                <option value="4" {{ request('star_rating') == '4' ? 'selected' : '' }}>4 sao</option>
-                <option value="5" {{ request('star_rating') == '5' ? 'selected' : '' }}>5 sao</option>
-            </select>
-            <div class="input-group-append">
-                <button class="btn btn-success" type="submit">Tìm kiếm Sao</button>
+            <div class="col-md-6">
+                <div class="input-group mb-3">
+                    <select name="star_rating" class="form-control">
+                        <option value="">Chọn số sao</option>
+                        <option value="1" {{ request('star_rating') == '1' ? 'selected' : '' }}>1 sao</option>
+                        <option value="2" {{ request('star_rating') == '2' ? 'selected' : '' }}>2 sao</option>
+                        <option value="3" {{ request('star_rating') == '3' ? 'selected' : '' }}>3 sao</option>
+                        <option value="4" {{ request('star_rating') == '4' ? 'selected' : '' }}>4 sao</option>
+                        <option value="5" {{ request('star_rating') == '5' ? 'selected' : '' }}>5 sao</option>
+                    </select>
+                    <div class="input-group-append">
+                        <button class="btn btn-success" type="submit">Tìm kiếm Sao</button>
+                    </div>
+                </div>
             </div>
         </div>
     </form>
