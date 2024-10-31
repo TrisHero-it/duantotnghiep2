@@ -73,8 +73,8 @@
         </div>
 
         <div class="form-group">
-            <label for="cccd">CCCD</label>
-            <input type="number" name="cccd" class="form-control" placeholder="Nhập số CCCD" value="{{ old('cccd') }}" required>
+            <label for="cccd">CCCD (Ảnh)</label>
+            <input type="file" name="cccd" class="form-control" required>
             @error('cccd')
                 <span class="text-danger">{{ $message }}</span>
             @enderror

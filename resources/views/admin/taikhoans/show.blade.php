@@ -41,10 +41,9 @@
                             <label for="sdt">Số điện thoại:</label>
                             <input type="text" class="form-control" value="{{ $taikhoan->sdt }}" readonly>
                         </div>
-                        <div class="form-group">
-                            <label for="cccd">CCCD:</label>
-                            <input type="text" class="form-control" value="{{ $taikhoan->cccd }}" readonly>
-                        </div>
+                        <div class="col-md-6">
+                        
+                    </div>
                         <div class="form-group">
                             <label for="mat_khau">Mật khẩu:</label>
                             <div class="input-group">
@@ -74,6 +73,12 @@
                             <label for="anh_dai_dien">Ảnh đại diện:</label>
                             <div>
                                 <img src="{{ Storage::url($taikhoan->anh_dai_dien) }}" alt="Ảnh đại diện" style="width: 200px; border-radius: 10px;">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="anh_dai_dien">CCCD (Ảnh)</label>
+                            <div>
+                                <img src="{{ Storage::url($taikhoan->cccd) }}" alt="Ảnh căn cước" style="width: 200px; border-radius: 10px;">
                             </div>
                         </div>
                     </div>
