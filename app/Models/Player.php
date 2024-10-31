@@ -12,7 +12,6 @@ class Player extends Model
     public $fillable = [
         "anh",
         "thong_tin",
-        "so_nguoi_theo_doi",
         "gia_tien",
         "trang_thai_player",
         "tai_khoan_id",
