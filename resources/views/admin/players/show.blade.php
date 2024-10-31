@@ -75,10 +75,6 @@
                                     <label class="form-label" for="">Số điện thoại</label>
                                     <input type="text" class="form-control" value="{{ $player -> taiKhoan -> sdt }}">
                                 </div>
-                                <div class="mb-3 col-md-2">
-                                    <label class="form-label" for="">Giới tính</label>
-                                    <input type="text" class="form-control" value="">
-                                </div>
                             </div>
                             <div class="row">
                                 
