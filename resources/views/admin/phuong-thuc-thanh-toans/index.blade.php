@@ -42,11 +42,20 @@
                                     {!! $phuongthucthanhtoan->trang_thai == 1 ? '<label class="badge badge-light-success">Success</label>' : '<label class="badge badge-light-danger">Cancel</label>' !!}
                                 </td> -->
                                 <td>
-                                    <form action="{{route('admin.phuongthucthanhtoans.destroy', $phuongthucthanhtoan->id)}}" method="POST" onsubmit="return confirm('Bạn có muốn xoá không?')">
-                                        @csrf
-                                        @method("DELETE")
-                                        <button type="submit" style="border:none; background:none"><i class="feather icon-trash-2 f-16 ms-3 text-c-red"></i></button>
-                                    </form>
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="{{route('admin.phuongthucthanhtoans.edit', $phuongthucthanhtoan->id)}}">
+                                                <i class="icon feather icon-edit f-16 text-c-green"></i>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <form action="{{route('admin.phuongthucthanhtoans.destroy', $phuongthucthanhtoan->id)}}" method="POST" onsubmit="return confirm('Bạn có muốn xoá không?')">
+                                                @csrf
+                                                @method("DELETE")
+                                                <button type="submit" style="border:none; background:none"><i class="feather icon-trash-2 f-16 ms-3 text-c-red"></i></button>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach

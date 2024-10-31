@@ -27,4 +27,6 @@ Route::delete('/dangtins/{id}', [DangTinController::class, 'store'])->name('dang
 Route::get('/phuongthucthanhtoans', [PhuongThucThanhToanController::class, 'index'])->name('phuongthucthanhtoans.index');
 Route::get('/phuongthucthanhtoans/create', [PhuongThucThanhToanController::class, 'create'])->name('phuongthucthanhtoans.create');
 Route::post('/phuongthucthanhtoans', [PhuongThucThanhToanController::class, 'store'])->name('phuongthucthanhtoans.store');
+Route::get('/phuongthucthanhtoans/{id}/edit', [PhuongThucThanhToanController::class, 'edit'])->name('phuongthucthanhtoans.edit');
+Route::post('/phuongthucthanhtoans/{id}', [PhuongThucThanhToanController::class, 'update'])->name('phuongthucthanhtoans.update');
 Route::delete('/phuongthucthanhtoans/{id}/destroy', [PhuongThucThanhToanController::class, 'destroy'])->name('phuongthucthanhtoans.destroy');
