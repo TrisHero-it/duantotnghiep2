@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin.layout.app');
+    return view('admin.layouts.app');
 });
 
 Route::get('/dangtins', [DangTinController::class, 'index'])->name('dangtins.index');
