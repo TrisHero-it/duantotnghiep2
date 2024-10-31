@@ -107,8 +107,8 @@
                             <div class="card-body">
                                 <div class="row align-items-center m-b-25">
                                     <div class="col">
-                                        <h6 class="m-b-5 text-white">Tổng tiền kiếm được</h6>
-                                        <h3 class="m-b-0 text-white">$1,783</h3>
+                                        <h6 class="m-b-5 text-white">Tổng doanh thu</h6>
+                                        <h3 class="m-b-0 text-white">{{ number_format($tongDoanhThu, 0, ',', '.') }} VND</h3>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-money-bill-alt text-c-red f-18"></i>
@@ -419,4 +419,101 @@
 
 <!-- custom-chart js -->
 <script src="{{asset('assets/js/pages/chart.js')}}"></script>
+<script>
+    // [ traffic-chart ] start
+$(function() {
+   // Themes begin
+   am4core.useTheme(am4themes_animated);
+   // Themes end
+   var chart = am4core.create("traffic-chart", am4charts.XYChart);
+   chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+   chart.data = [
+    {
+       "date": "2018-01-01",
+       "steps": 4561
+   },
+   {
+       "date": "2018-01-02",
+       "steps": 8754
+   }, ];
+
+   chart.dateFormatter.inputDateFormat = "YYYY-MM-dd";
+   chart.zoomOutButton.disabled = true;
+
+   var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+   dateAxis.renderer.grid.template.strokeOpacity = 0;
+   dateAxis.renderer.minGridDistance = 10;
+   dateAxis.dateFormats.setKey("day", "d");
+   dateAxis.tooltip.hiddenState.properties.opacity = 1;
+   dateAxis.tooltip.hiddenState.properties.visible = true;
+
+   var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+   valueAxis.renderer.inside = true;
+   valueAxis.renderer.labels.template.fillOpacity = 0.3;
+   valueAxis.renderer.grid.template.strokeOpacity = 0;
+   valueAxis.min = 0;
+
+   // goal guides
+   var axisRange = valueAxis.axisRanges.create();
+   axisRange.value = 6000;
+   axisRange.grid.strokeOpacity = 0.1;
+   axisRange.label.text = "Session";
+   axisRange.label.align = "right";
+   axisRange.label.verticalCenter = "bottom";
+   axisRange.label.fillOpacity = 0.8;
+
+   valueAxis.renderer.gridContainer.zIndex = 1;
+
+   var axisRange2 = valueAxis.axisRanges.create();
+   axisRange2.value = 12000;
+   axisRange2.grid.strokeOpacity = 0.1;
+   axisRange2.label.text = "2x Session";
+   axisRange2.label.align = "right";
+   axisRange2.label.verticalCenter = "bottom";
+   axisRange2.label.fillOpacity = 0.8;
+
+   var series = chart.series.push(new am4charts.ColumnSeries);
+   series.dataFields.valueY = "steps";
+   series.dataFields.dateX = "date";
+   series.tooltipText = "{valueY.value}";
+
+   var columnTemplate = series.columns.template;
+   columnTemplate.width = am4core.percent(50);
+   columnTemplate.strokeOpacity = 0;
+
+
+   var gradient = new am4core.LinearGradient();
+   gradient.addColor(am4core.color("#19BCBF"), 1);
+   gradient.addColor(am4core.color("#149698"), 1);
+   gradient.rotation = -45;
+
+   var gradient1 = new am4core.LinearGradient();
+   gradient1.addColor(am4core.color("#13bd8a"), 1);
+   gradient1.addColor(am4core.color("#30a262"), 1);
+   gradient1.rotation = -45;
+
+
+   columnTemplate.adapter.add("fill", function(fill, target) {
+       var dataItem = target.dataItem;
+       if (dataItem.valueY > 6000) {
+           return gradient;
+       } else {
+           return gradient1;
+       }
+   })
+
+   var cursor = new am4charts.XYCursor();
+   cursor.behavior = "panX";
+   chart.cursor = cursor;
+
+   chart.events.on("datavalidated", function() {
+       dateAxis.zoomToDates(new Date(2018, 0, 11), new Date(2018, 1, 1), false, true);
+   });
+
+   chart.scrollbarX = new am4core.Scrollbar();
+   chart.scrollbarX.parent = chart.bottomAxesContainer;
+});
+// [ traffic-chart ] end
+</script>
 @endsection
