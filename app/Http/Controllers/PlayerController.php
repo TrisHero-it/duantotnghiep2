@@ -34,12 +34,12 @@ class PlayerController extends Controller
 
         // Số lượng đơn thuê thành công của player
         $soDonThue = LichSuThuePlayer::where('player_id', $id)
-            ->where('trang_thai_thue', 'success') // Kiểm tra trạng thái thuê
+            ->where('trang_thai_thue', 'thành công') // Kiểm tra trạng thái thuê
             ->count();
 
         // Tổng số giờ thuê (cũng cần kiểm tra trạng thái)
         $tongGioThue = LichSuThuePlayer::where('player_id', $id)
-            ->where('trang_thai_thue', 'success') // Kiểm tra trạng thái thuê
+            ->where('trang_thai_thue', 'thành công') // Kiểm tra trạng thái thuê
             ->sum('gio_thue');
 
         // Tổng số người theo dõi (cũng cần kiểm tra trạng thái)
