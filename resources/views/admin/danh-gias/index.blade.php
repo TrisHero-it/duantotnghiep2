@@ -9,16 +9,16 @@
     <!-- Form Tìm Kiếm -->
     <form method="GET" action="{{ route('admin.danhgia.index') }}" class="mb-4">
         <div class="row">
-            <div class="col-md-6">
-                <div class="input-group mb-3">
+            <div class="col-md-6 mb-3">
+                <div class="input-group">
                     <input type="text" name="query" class="form-control" placeholder="Nhập ID player để tìm kiếm..." value="{{ request('query') }}">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="submit">Tìm kiếm ID</button>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="input-group mb-3">
+            <div class="col-md-6 mb-3">
+                <div class="input-group">
                     <select name="star_rating" class="form-control">
                         <option value="">Chọn số sao</option>
                         <option value="1" {{ request('star_rating') == '1' ? 'selected' : '' }}>1 sao</option>
@@ -120,6 +120,22 @@
     .timestamp {
         font-size: 12px;
         color: #888; 
+    }
+    /* Tìm kiếm */
+    .input-group {
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    .input-group .form-control {
+        border: 1px solid #ced4da;
+        border-right: none; /* Bỏ viền bên phải */
+        border-radius: 0; /* Bỏ bo góc */
+    }
+    .input-group .btn {
+        border-radius: 0; /* Bỏ bo góc */
+    }
+    .input-group-append .btn {
+        border-left: 0; /* Bỏ viền bên trái */
     }
 </style>
 @endsection
