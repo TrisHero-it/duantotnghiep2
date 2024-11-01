@@ -33,19 +33,16 @@
                 </div>
             </div>
         </div>
-    </form>
+    </form> 
 
-    <h3 class="mb-3">Đánh giá player</h3>
+    <h3 class="mb-3">Danh sách đánh giá theo từng player</h3>
     <div class="row">
         @foreach($danhGias->groupBy('player_id') as $playerId => $danhGiasForPlayer)
             <div class="col-md-4 mb-4">
                 <div class="player-rating border rounded shadow-sm bg-light p-3">
                     @php
-                        // Tính tổng số đánh giá, tổng số sao, và trung bình sao
+                        // Tính tổng số đánh giá và số sao
                         $totalReviews = $danhGiasForPlayer->count();
-                        $totalStars = $danhGiasForPlayer->sum('so_sao');
-                        $averageStars = $totalReviews > 0 ? round($totalStars / $totalReviews, 1) : 0;
-
                         $starCounts = [
                             1 => $danhGiasForPlayer->where('so_sao', 1)->count(),
                             2 => $danhGiasForPlayer->where('so_sao', 2)->count(),
@@ -55,10 +52,8 @@
                         ];
                     @endphp
 
-                    <!-- Hiển thị trung bình sao -->
                     <div class="average-rating mb-2">
                         <h5 class="font-weight-bold">Tỷ lệ đánh giá</h5>
-                        <p class="mb-1">Trung bình: <strong>{{ $averageStars }} ★</strong> ({{ $totalReviews }} đánh giá)</p>
                         <div class="star-rating">
                             @for ($i = 1; $i <= 5; $i++)
                                 <div class="star-count">
@@ -72,10 +67,16 @@
                         </div>
                     </div>
 
-                    <!-- Phần bình luận có thể cuộn -->
-                    <div class="player-stars" style="max-height: 200px; overflow-y: auto;">
+                    <!-- Phần bình luận với khả năng cuộn -->
+                    <div class="player-stars" style="max-height: 250px; overflow-y: auto;">
                         @foreach ($danhGiasForPlayer as $danhGia)
                             <div class="rating-item border rounded bg-white p-2 mb-2">
+                                <!-- Hiển thị số sao người dùng đánh giá -->
+                                <div class="user-stars mb-2">
+                                    @for ($j = 1; $j <= 5; $j++)
+                                        <span class="star {{ $j <= $danhGia->so_sao ? 'filled' : '' }}">★</span>
+                                    @endfor
+                                </div>
                                 <p class="comment mt-2">{{ $danhGia->nhan_xet }}</p>
                                 <small class="timestamp text-muted">{{ $danhGia->created_at ? $danhGia->created_at->format('d/m/Y H:i:s') : 'Chưa có thời gian' }}</small>
                             </div>
@@ -118,29 +119,32 @@
         left: 0;
     }
     .player-rating {
-        background-color: #f9f9f9;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        padding: 20px;
+        background-color: #f9f9f9; 
+        border: 1px solid #ccc; 
+        border-radius: 10px; 
+        padding: 20px; 
         margin-bottom: 20px;
     }
     .rating-item {
-        border: 1px solid #eaeaea;
+        border: 1px solid #eaeaea; 
         border-radius: 5px;
-        padding: 15px;
+        padding: 15px; 
         margin-bottom: 10px;
-        background-color: #ffffff;
+        background-color: #ffffff; 
     }
     .comment {
         margin: 10px 0;
     }
     .timestamp {
         font-size: 12px;
-        color: #888;
+        color: #888; 
     }
     .star {
-        color: gold; /* Màu ngôi sao */
+        color: #ddd; /* Màu mặc định cho ngôi sao */
         font-size: 18px; /* Kích thước ngôi sao */
+    }
+    .star.filled {
+        color: gold; /* Màu cho ngôi sao đã đánh giá */
     }
     /* Tìm kiếm */
     .input-group {
