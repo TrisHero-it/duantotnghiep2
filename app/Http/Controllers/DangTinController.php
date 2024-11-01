@@ -14,7 +14,7 @@ class DangTinController extends Controller
     const PATH_UPLOAD = "public/video";
     public function index()
     {
-        $dangtins = DangTin::all();
+        $dangtins = DangTin::withCount('luotThichs')->get();
         $taikhoans = TaiKhoan::all();
 
         return view('admin.dang-tins.index', compact('dangtins', 'taikhoans')); 

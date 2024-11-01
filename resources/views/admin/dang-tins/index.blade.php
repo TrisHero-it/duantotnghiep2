@@ -27,7 +27,6 @@
                                 <th>Lượt thích</th>
                                 <th>Nội dung</th>
                                 <th>Trạng thái</th>
-                                
                                 <th>Ngày đăng</th>
                                 <th>Thao tác</th>
                             </tr>
@@ -42,7 +41,7 @@
                                         <source src="{{ Storage::url($dangtin->video) }}" type="video/mp4">
                                     </video>
                                 </td>
-                                <td>lấy sau</td>
+                                <td>{{$dangtin->luot_thichs_count}}</td>
                                 <td>{{$dangtin->noi_dung}}</td>
                                 <td>
                                     {!! $dangtin->trang_thai == 1 ? '<label class="badge badge-light-success">Success</label>' : '<label class="badge badge-light-danger">Cancel</label>' !!}

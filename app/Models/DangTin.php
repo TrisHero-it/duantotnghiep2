@@ -17,6 +17,13 @@ class DangTin extends Model
         "trang_thai"
     ];
 
+    // Model Story.php
+    public function luotThichs()
+    {
+        return $this->hasMany(LuotThichDangTin::class, 'dang_tin_id');
+    }
+
+
     public function taiKhoan()
     {
         return $this->belongsTo(TaiKhoan::class);

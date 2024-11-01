@@ -28,10 +28,10 @@
                         <div class="row mt-3">
                             <div class="col-6">
                                 <label class="form-label" for="exampleInputEmail1">Logo</label>
-                                <div>
-                                    <img src="{{Storage::url($phuongthucthanhtoan->logo)}}" alt="">
-                                </div>
                                 <input type="file" name="logo" class="form-control">
+                                <div>
+                                    <img src="{{Storage::url($phuongthucthanhtoan->logo)}}" alt="" class="mt-3" width="100px">
+                                </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label">Mô tả</label>
@@ -40,7 +40,6 @@
                         </div>
                         <button type="submit" class="btn btn-primary mt-4">Submit</button>
                     </form>
-
                 </div>
             </div>
         </div>
