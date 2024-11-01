@@ -33,4 +33,5 @@ Route::get('/binhluans/create', [BinhLuanController::class, 'create'])->name('bi
 Route::post('/binhluans/store', [BinhLuanController::class, 'store'])->name('binhluans.store');
 Route::get('/binhluans/{id}/edit', [BinhLuanController::class, 'edit'])->name('binhluans.edit');
 Route::put('/binhluans/{id}', [BinhLuanController::class, 'update'])->name('binhluans.update');
+Route::put('/binhluans/{id}/update-status', [BinhLuanController::class, 'updateStatus'])->name('binhluans.update-status');
 Route::delete('/binhluans/{id}', [BinhLuanController::class, 'destroy'])->name('binhluans.destroy');

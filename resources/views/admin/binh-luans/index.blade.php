@@ -65,10 +65,14 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <!-- <div class="switch switch-primary d-inline">
-                                        <input onclick="updateStatus('{{ $binhluan->id }}', '{{$binhluan->trang_thai==1 ? 0 : 1}}')" type="checkbox" id="switch-{{ $binhluan->id }}" {{ $binhluan->trang_thai == 1 ? 'checked' : '' }}>
-                                        <label for="switch-{{ $binhluan->id }}" class="cr switch-alignment"></label>
-                                    </div> -->
+                                <form action="{{ route('admin.binhluans.update-status', $binhluan->id) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="switch switch-primary d-inline">
+                                            <input type="checkbox" name="trang_thai" value="{{ $binhluan->trang_thai == 1 ? 0 : 1 }}" id="switch-{{ $binhluan->id }}" {{ $binhluan->trang_thai == 1 ? 'checked' : '' }} onchange="this.form.submit()">
+                                            <label for="switch-{{ $binhluan->id }}" class="cr switch-alignment"></label>
+                                        </div>
+                                    </form>
                                 </td>
                                 <td>{{$binhluan->created_at}}</td>
                                 <td>
@@ -98,23 +102,13 @@
     <!-- Language - Comma Decimal Place table end -->
 </div>
 
-@endsection
-
+@if (session('success'))
 <script>
-    function updateStatus(id, status) {
-        $.ajax({
-            url: '/admin/danhmucs/' + id,
-            method: 'PUT',
-            data: {
-                _token: '{{csrf_token()}}',
-                trang_thai: status,
-            },
-            success: (data) => {
-                alert('Sửa trạng thái thành công');
-            }
-        })
-    }
+    swal("Thành công!", "{{ session('success') }}", "success");
 </script>
+@endif
+
+@endsection
 
 @section('script')
 <script src="{{asset('assets/plugins/data-tables/js/datatables.min.js')}}"></script>
