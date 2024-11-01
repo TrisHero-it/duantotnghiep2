@@ -47,7 +47,7 @@
 
                 <div class="form-group">
                     <label for="sdt">Số điện thoại</label>
-                    <input type="number" name="sdt" class="form-control" placeholder="Nhập số điện thoại" value="{{ old('sdt') }}" required>
+                    <input type="text" name="sdt" class="form-control" placeholder="Nhập số điện thoại" value="{{ old('sdt') }}" required>
                     @error('sdt')
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
@@ -91,13 +91,7 @@
                     @enderror
                 </div>
 
-                <div class="form-group">
-                    <label for="so_du">Số dư</label>
-                    <input type="number" name="so_du" class="form-control" placeholder="Nhập số dư" value="{{ old('so_du', 0) }}" required>
-                    @error('so_du')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
+                
 
                 <div class="form-group">
                     <label for="anh_dai_dien">Ảnh đại diện</label>
@@ -118,13 +112,7 @@
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="form-group">
-    <label for="bi_cam">Cấm tài khoản</label>
-    <input type="checkbox" name="bi_cam" value="1" {{ old('bi_cam') ? 'checked' : '' }}>
-    @error('bi_cam')
-    <span class="text-danger">{{ $message }}</span>
-    @enderror
-</div>
+                
 
             </div>
         </div>

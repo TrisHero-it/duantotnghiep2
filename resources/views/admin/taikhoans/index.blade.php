@@ -6,7 +6,7 @@
 <div class="row">
     <!-- Zero config table start -->
     <div class="col-sm-12">
-        <a href="{{ route('admin.taikhoans.create') }}" class="btn btn-success">Thêm tài khoản</a>
+        
         <div class="card">
             <div class="card-header">
                 <h5>Danh sách tài khoản</h5>
