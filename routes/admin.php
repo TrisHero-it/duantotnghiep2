@@ -1,12 +1,9 @@
 <?php
 
-<<<<<<< HEAD
-use App\Http\Controllers\TaiKhoanController;
-=======
 use App\Http\Controllers\DangTinController;
 use App\Http\Controllers\PhuongThucThanhToanController;
 use App\Http\Controllers\PlayerController;
->>>>>>> 7dab740760a36ee85a91e0c531a6321e954bc672
+use App\Http\Controllers\TaiKhoanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.layouts.app');
 });
-<<<<<<< HEAD
 Route::get('/taikhoans', [TaiKhoanController::class, 'index'])->name('taikhoans.index');
 Route::get('/taikhoans/create', [TaiKhoanController::class, 'create'])->name('taikhoans.create');
 Route::post('/taikhoans/store', [TaiKhoanController::class, 'store'])->name('taikhoans.store');
@@ -32,7 +28,6 @@ Route::post('/taikhoans/ban/{id}', [TaiKhoanController::class, 'banUser'])->name
 Route::post('/taikhoans/unban/{id}', [TaiKhoanController::class, 'unbanUser'])->name('taikhoans.unban');
 
 
-=======
 
 Route::get('/dangtins', [DangTinController::class, 'index'])->name('dangtins.index');
 Route::get('/dangtins/create', [DangTinController::class, 'create'])->name('dangtins.create');
@@ -48,4 +43,3 @@ Route::put('/phuongthucthanhtoans/{id}/update-status', [PhuongThucThanhToanContr
 Route::delete('/phuongthucthanhtoans/{id}', [PhuongThucThanhToanController::class, 'destroy'])->name('phuongthucthanhtoans.destroy');
 
 Route::resource('players', PlayerController::class);
->>>>>>> 7dab740760a36ee85a91e0c531a6321e954bc672
