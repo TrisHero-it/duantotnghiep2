@@ -77,10 +77,10 @@
                                         class="pcoded-badge label label-danger">NEW</span></a></li>
                         </ul>
                     </li>
-                    <li data-username="comments" class="nav-item"><a href="!#"
+                    <li data-username="comments" class="nav-item"><a href="{{ route('admin.dangtins.index') }}"
                             class="nav-link"><span class="pcoded-micon"><i
                                     class="feather icon-aperture"></i></span><span
-                                class="pcoded-mtext">dùng cái này nếu chỉ list ra</span></a></li>
+                                class="pcoded-mtext">Quản lý đăng tin</span></a></li>
                     <li data-username="dashboard default ecommerce sales Helpdesk ticket CRM analytics project"
                         class="nav-item pcoded-hasmenu">
                         <a href="#!" class="nav-link"><span class="pcoded-micon"><i
@@ -115,9 +115,7 @@
     <script src="{{ asset('assets/js/pcoded.min.js') }}"></script>
     <script src="{{ asset('assets/js/menu-setting.js') }}"></script>
 
-    @yield('script')
-
-    <script src="{{ asset('assets/js/pages/dashboard-analytics.js') }}"></script>
+    @yield('test')
 </body>
 
 
