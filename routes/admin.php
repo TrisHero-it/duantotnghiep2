@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DangTinController;
 use App\Http\Controllers\PhuongThucThanhToanController;
+use App\Http\Controllers\PlayerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,3 +33,4 @@ Route::put('/phuongthucthanhtoans/{id}', [PhuongThucThanhToanController::class, 
 Route::put('/phuongthucthanhtoans/{id}/update-status', [PhuongThucThanhToanController::class, 'updateStatus'])->name('phuongthucthanhtoans.update-status');
 Route::delete('/phuongthucthanhtoans/{id}', [PhuongThucThanhToanController::class, 'destroy'])->name('phuongthucthanhtoans.destroy');
 
+Route::resource('players', PlayerController::class);

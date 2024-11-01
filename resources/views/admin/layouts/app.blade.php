@@ -88,6 +88,12 @@
                         <ul class="pcoded-submenu">
                             <li class=""><a href="{{ route('admin.phuongthucthanhtoans.index') }}" class="">Danh sách</a></li>
                             <li class=""><a href="{{ route('admin.phuongthucthanhtoans.create') }}" class="">Thêm mới</a></li>
+                    <li data-username="dashboard default ecommerce sales Helpdesk ticket CRM analytics project"
+                        class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link"><span class="pcoded-micon"><i
+                                    class="fas fa-user-secret"></i></span><span class="pcoded-mtext">Quản lí player</span></a>
+                        <ul class="pcoded-submenu">
+                            <li class=""><a href="{{ route('admin.players.index') }}" class="">Danh sách</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -115,9 +121,7 @@
     <script src="{{ asset('assets/js/pcoded.min.js') }}"></script>
     <script src="{{ asset('assets/js/menu-setting.js') }}"></script>
 
-    @yield('script')
-
-    <script src="{{ asset('assets/js/pages/dashboard-analytics.js') }}"></script>
+    @yield('test')
 </body>
 
 
