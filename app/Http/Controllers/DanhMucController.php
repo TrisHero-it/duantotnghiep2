@@ -17,7 +17,7 @@ class DanhMucController extends Controller
     public function index()
     {
         $danhmucs = DanhMuc::all();
-        return view('admin.danh-mucs.index', compact( 'danhmucs'));
+        return view('admin.danh-mucs.index', compact('danhmucs'));
     }
 
     /**
@@ -37,8 +37,8 @@ class DanhMucController extends Controller
 
         $data = $request->except('anh_dai_dien');
 
-        if($request->hasFile('anh_dai_dien')){
-            $data['anh_dai_dien'] = Storage::put(self::PATH_UPLOAD,$request->file('anh_dai_dien'));
+        if ($request->hasFile('anh_dai_dien')) {
+            $data['anh_dai_dien'] = Storage::put(self::PATH_UPLOAD, $request->file('anh_dai_dien'));
         }
 
         // dd($request->all());
@@ -73,23 +73,23 @@ class DanhMucController extends Controller
         $danhmuc = DanhMuc::findOrFail($id);
         $data = $request->except('anh_dai_dien');
 
-        if($request->hasFile('anh_dai_dien')){
+        if ($request->hasFile('anh_dai_dien')) {
             Storage::disk('public')->delete($request->anh_dai_dien);
-            $data['anh_dai_dien'] = Storage::put(self::PATH_UPLOAD,$request->file('anh_dai_dien'));
+            $data['anh_dai_dien'] = Storage::put(self::PATH_UPLOAD, $request->file('anh_dai_dien'));
         }
         $danhmuc->update($data);
         return redirect()->route('admin.danhmucs.index');
     }
 
     public function updateStatus(Request $request, $id)
-{
-    $danhmuc = DanhMuc::findOrFail($id);
-    $trang_thai = $request->input('trang_thai') ? 1 : 0;
-    $danhmuc->trang_thai = $trang_thai;
-    $danhmuc->save();
+    {
+        $danhmuc = DanhMuc::findOrFail($id);
+        $trang_thai = $request->input('trang_thai') ? 1 : 0;
+        $danhmuc->trang_thai = $trang_thai;
+        $danhmuc->save();
 
-    return redirect()->route('admin.danhmucs.index')->with('success', 'Cập nhật thành công.');
-}
+        return redirect()->route('admin.danhmucs.index')->with('success', 'Cập nhật thành công.');
+    }
 
 
     /**

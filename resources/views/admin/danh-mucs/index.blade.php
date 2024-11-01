@@ -2,6 +2,9 @@
 
 @section('header')
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
 <!-- data tables css -->
 <link rel="stylesheet" href="{{asset('assets/plugins/data-tables/css/datatables.min.css')}}">
 
@@ -77,23 +80,13 @@
     <!-- Language - Comma Decimal Place table end -->
 </div>
 
-@endsection
-
+@if (session('success'))
 <script>
-    function updateStatus(id, status) {
-        $.ajax({
-            url: '/admin/catalogues/' + id,
-            method: 'PUT',
-            data: {
-                _token: '{{csrf_token()}}',
-                trang_thai: status,
-            },
-            success: (data) => {
-                alert('Sửa trạng thái thành công');
-            }
-        })
-    }
+    swal("Thành công!", "{{ session('success') }}", "success");
 </script>
+@endif
+
+@endsection
 
 @section('script')
 <script src="{{asset('assets/plugins/data-tables/js/datatables.min.js')}}"></script>

@@ -2,12 +2,6 @@
 
 @section('content')
 
-@if (session('success'))
-<div class="alert alert-success">
-    {{ session('success') }}
-</div>
-@endif
-
 <div class="row custom-color">
     <div class="col-md-12">
         <div class="card">

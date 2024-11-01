@@ -23,7 +23,7 @@ class DanhMucStoreRequest extends FormRequest
     {
         return [
             'ten' => 'required|max:50',
-            'anh_dai_dien' => 'required|mimes:png,jpg,svg|max:10240'
+            'anh_dai_dien' => 'required|mimes:png,jpg,svg,webp|max:10240'
         ];
     }
     public function messages(): array
