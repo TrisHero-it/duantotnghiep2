@@ -1,9 +1,10 @@
 @extends('admin.layouts.app')
 
 @section('header')
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-<!-- data tables css -->
+
 <link rel="stylesheet" href="{{asset('assets/plugins/data-tables/css/datatables.min.css')}}">
 
 @endsection
@@ -11,7 +12,6 @@
 @section('content')
 
 <div class="row">
-    <!-- Zero config table start -->
     <div class="col-sm-12">
         <div class="card">
             <div class="card-header">
@@ -73,7 +73,6 @@
             </div>
         </div>
     </div>
-    <!-- Language - Comma Decimal Place table end -->
 </div>
 
 @if (session('success'))
