@@ -6,15 +6,15 @@
 <div class="row">
     <!-- Zero config table start -->
     <div class="col-sm-12">
-    <a href="{{ route('admin.taikhoans.create') }}" class="btn btn-primary">Thêm tài khoản</a>
+        <a href="{{ route('admin.taikhoans.create') }}" class="btn btn-success">Thêm tài khoản</a>
         <div class="card">
             <div class="card-header">
                 <h5>Danh sách tài khoản</h5>
             </div>
             @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
             @endif
             
             <div class="card-body">
@@ -33,24 +33,31 @@
                         </thead>
                         <tbody>
                             @foreach($taikhoans as $taikhoan)
-                            <tr>
-                                <td>{{ $taikhoan->id }}</td>
-                                <td>{{ $taikhoan->ten }}</td>
-                                <td><img src="{{Storage::url($taikhoan->anh_dai_dien)}}" style="width: 100px;" alt=""></td>
-                                <td>{{ $taikhoan->gioi_tinh }}</td>
-                                <td>{{ $taikhoan->email }}</td>
-                                <td>{{ $taikhoan->sdt }}</td>
-                                <td>
-                                <form action="{{ route('admin.taikhoans.delete', $taikhoan->id) }}" method="POST" style="display:inline;" onclick="confirm('Bạn có chắc muốn xóa không?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Xóa</button>
+                                <tr>
+                                    <td>{{ $taikhoan->id }}</td>
+                                    <td>{{ $taikhoan->ten }}</td>
+                                    <td><img src="{{ Storage::url($taikhoan->anh_dai_dien) }}" style="width: 100px;" alt=""></td>
+                                    <td>{{ $taikhoan->gioi_tinh }}</td>
+                                    <td>{{ $taikhoan->email }}</td>
+                                    <td>{{ $taikhoan->sdt }}</td>
+                                    <td>
+                                        
 
+                                        @if($taikhoan->isBanned())
+                                            <form action="{{ route('admin.taikhoans.unban', $taikhoan->id) }}" method="POST" style="display: inline-block;">
+                                                @csrf
+                                                <button type="submit" class="btn btn-success">Mở lại</button>
+                                            </form>
+                                        @else
+                                            <form action="{{ route('admin.taikhoans.ban', $taikhoan->id) }}" method="POST" style="display: inline-block;">
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger">Cấm</button>
+                                            </form>
+                                        @endif
 
-                                </form>
-                                <a href="{{ route('admin.taikhoans.show', $taikhoan->id) }}" class="btn btn-info">Xem chi tiết</a>
-                                </td>
-                            </tr>
+                                        <a href="{{ route('admin.taikhoans.show', $taikhoan->id) }}" class="btn btn-info">Xem chi tiết</a>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                         <tfoot>

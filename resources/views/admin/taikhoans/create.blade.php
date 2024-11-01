@@ -118,6 +118,14 @@
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
+                <div class="form-group">
+    <label for="bi_cam">Cấm tài khoản</label>
+    <input type="checkbox" name="bi_cam" value="1" {{ old('bi_cam') ? 'checked' : '' }}>
+    @error('bi_cam')
+    <span class="text-danger">{{ $message }}</span>
+    @enderror
+</div>
+
             </div>
         </div>
 

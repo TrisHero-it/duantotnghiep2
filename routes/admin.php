@@ -21,6 +21,7 @@ Route::get('/taikhoans', [TaiKhoanController::class, 'index'])->name('taikhoans.
 Route::get('/taikhoans/create', [TaiKhoanController::class, 'create'])->name('taikhoans.create');
 Route::post('/taikhoans/store', [TaiKhoanController::class, 'store'])->name('taikhoans.store');
 Route::get('/taikhoans/show/{id}', [TaiKhoanController::class, 'show'])->name('taikhoans.show');
-Route::get('/taikhoans/edit/{id}', [TaiKhoanController::class, 'edit'])->name('taikhoans.edit');
-Route::put('/taikhoans/update/{id}', [TaiKhoanController::class, 'update'])->name('taikhoans.update');
-Route::delete('/taikhoans/{id}', [TaiKhoanController::class, 'destroy'])->name('taikhoans.delete');
+Route::post('/taikhoans/ban/{id}', [TaiKhoanController::class, 'banUser'])->name('taikhoans.ban');
+Route::post('/taikhoans/unban/{id}', [TaiKhoanController::class, 'unbanUser'])->name('taikhoans.unban');
+
+

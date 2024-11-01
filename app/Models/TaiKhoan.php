@@ -40,4 +40,8 @@ class TaiKhoan extends Authenticatable // Kế thừa từ Authenticatable
     {
         return $this->belongsTo(PhanQuyen::class, 'phan_quyen_id');
     }
+    public function isBanned()
+    {
+        return !is_null($this->banned_at);
+    }
 }
