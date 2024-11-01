@@ -61,14 +61,14 @@
                                     <div class="stars stars-example-css">
                                         @for ($i = 1; $i <= 5; $i++)
                                             <span class="star {{ $i <= $binhluan->danh_gia ? 'filled' : '' }}">&#9733;</span>
-                                        @endfor
+                                            @endfor
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="switch switch-primary d-inline">
+                                    <!-- <div class="switch switch-primary d-inline">
                                         <input onclick="updateStatus('{{ $binhluan->id }}', '{{$binhluan->trang_thai==1 ? 0 : 1}}')" type="checkbox" id="switch-{{ $binhluan->id }}" {{ $binhluan->trang_thai == 1 ? 'checked' : '' }}>
                                         <label for="switch-{{ $binhluan->id }}" class="cr switch-alignment"></label>
-                                    </div>
+                                    </div> -->
                                 </td>
                                 <td>{{$binhluan->created_at}}</td>
                                 <td>
@@ -103,7 +103,7 @@
 <script>
     function updateStatus(id, status) {
         $.ajax({
-            url: '/admin/catalogues/' + id,
+            url: '/admin/danhmucs/' + id,
             method: 'PUT',
             data: {
                 _token: '{{csrf_token()}}',

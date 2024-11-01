@@ -24,6 +24,7 @@ Route::get('/danhmucs/create', [DanhMucController::class, 'create'])->name('danh
 Route::post('/danhmucs/store', [DanhMucController::class, 'store'])->name('danhmucs.store');
 Route::get('/danhmucs/{id}/edit', [DanhMucController::class, 'edit'])->name('danhmucs.edit');
 Route::put('/danhmucs/{id}', [DanhMucController::class, 'update'])->name('danhmucs.update');
+Route::put('/danhmucs/{id}/update-status', [DanhMucController::class, 'updateStatus'])->name('danhmucs.update-status');
 Route::delete('/danhmucs/{id}', [DanhMucController::class, 'destroy'])->name('danhmucs.destroy');
 
 

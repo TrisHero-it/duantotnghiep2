@@ -37,10 +37,18 @@
                                     <img src="{{Storage::url($danhmuc->anh_dai_dien)}}" alt="" width="100px">
                                 </td>
                                 <td>
-                                    <div class="switch switch-primary d-inline">
+                                    <!-- <div class="switch switch-primary d-inline">
                                         <input onclick="updateStatus('{{ $danhmuc->id }}', '{{$danhmuc->trang_thai==1 ? 0 : 1}}')" type="checkbox" id="switch-{{ $danhmuc->id }}" {{ $danhmuc->trang_thai == 1 ? 'checked' : '' }}>
                                         <label for="switch-{{ $danhmuc->id }}" class="cr switch-alignment"></label>
-                                    </div>
+                                    </div> -->
+                                    <form action="{{ route('admin.danhmucs.update-status', $danhmuc->id) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="switch switch-primary d-inline">
+                                            <input type="checkbox" name="trang_thai" value="{{ $danhmuc->trang_thai == 1 ? 0 : 1 }}" id="switch-{{ $danhmuc->id }}" {{ $danhmuc->trang_thai == 1 ? 'checked' : '' }} onchange="this.form.submit()">
+                                            <label for="switch-{{ $danhmuc->id }}" class="cr switch-alignment"></label>
+                                        </div>
+                                    </form>
                                 </td>
                                 <td>
                                     <div class="row">

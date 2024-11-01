@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DanhMucStoreRequest;
+use App\Http\Requests\DanhMucUpdateRequest;
 use App\Models\DanhMuc;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -29,9 +31,9 @@ class DanhMucController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(DanhMucStoreRequest $request)
     {
-        // $validate = $request->validated();
+        $validate = $request->validated();
 
         $data = $request->except('anh_dai_dien');
 
@@ -78,6 +80,17 @@ class DanhMucController extends Controller
         $danhmuc->update($data);
         return redirect()->route('admin.danhmucs.index');
     }
+
+    public function updateStatus(Request $request, $id)
+{
+    $danhmuc = DanhMuc::findOrFail($id);
+    $trang_thai = $request->input('trang_thai') ? 1 : 0;
+    $danhmuc->trang_thai = $trang_thai;
+    $danhmuc->save();
+
+    return redirect()->route('admin.danhmucs.index')->with('success', 'Cập nhật thành công.');
+}
+
 
     /**
      * Remove the specified resource from storage.

@@ -1,6 +1,13 @@
 @extends('admin.layouts.app')
 
 @section('content')
+
+@if (session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
+
 <div class="row custom-color">
     <div class="col-md-12">
         <div class="card">
@@ -15,10 +22,16 @@
                             <div class="col">
                                 <label class="form-label">Tên danh mục</label>
                                 <input type="text" name="ten" class="form-control" placeholder="Ten danh muc">
+                                @error('ten')
+                                <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col">
                                 <label class="form-label">Ảnh đại diện</label>
                                 <input type="file" name="anh_dai_dien" class="form-control">
+                                @error('anh_dai_dien')
+                                <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary mt-4">Submit</button>
