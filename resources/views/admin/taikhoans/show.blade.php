@@ -18,6 +18,10 @@
                         <input type="text" class="form-control" value="{{ $taikhoan->id }}" readonly>
                     </div>
                     <div class="form-group">
+                        <label>Mã định danh:</label> <!-- Thêm dòng này -->
+                        <input type="text" class="form-control" value="{{ $taikhoan->id_dinh_danh }}" readonly> <!-- Thêm input cho mã định danh -->
+                    </div>
+                    <div class="form-group">
                         <label>Tên:</label>
                         <input type="text" class="form-control" value="{{ $taikhoan->ten }}" readonly>
                     </div>

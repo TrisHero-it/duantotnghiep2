@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Foundation\Auth\User as Authenticatable; // Sử dụng lớp Authenticatable
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
 
 class TaiKhoan extends Authenticatable // Kế thừa từ Authenticatable
 {
@@ -44,4 +45,19 @@ class TaiKhoan extends Authenticatable // Kế thừa từ Authenticatable
     {
         return !is_null($this->banned_at);
     }
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->uuid = (string) Str::uuid();
+        });
+    }
+    public function generateAccountId()
+{
+    $lastId = TaiKhoan::orderBy('id', 'desc')->first();
+    $newId = $lastId ? $lastId->id + 1 : 1;
+
+    return 'TK' . str_pad($newId, 5, '0', STR_PAD_LEFT);
+}
 }
