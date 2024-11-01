@@ -82,7 +82,7 @@ class DanhMucController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(DanhMuc $id)
+    public function destroy(int $id)
     {
         $danhmuc = DanhMuc::findOrFail($id);
         $danhmuc->delete();

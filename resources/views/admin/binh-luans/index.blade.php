@@ -46,6 +46,7 @@
                                 <th>Nội dung</th>
                                 <th>Đánh giá</th>
                                 <th>Trạng thái</th>
+                                <th>Thời gian</th>
                                 <th>Thao tác</th>
                             </tr>
                         </thead>
@@ -69,6 +70,7 @@
                                         <label for="switch-{{ $binhluan->id }}" class="cr switch-alignment"></label>
                                     </div>
                                 </td>
+                                <td>{{$binhluan->created_at}}</td>
                                 <td>
                                     <div class="row">
                                         <div class="col">
