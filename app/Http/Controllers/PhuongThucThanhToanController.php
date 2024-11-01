@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PhuongThucThanhToanStoreRequest;
 use App\Models\PhuongThucThanhToan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -20,8 +21,9 @@ class PhuongThucThanhToanController extends Controller
         return view('admin.phuong-thuc-thanh-toans.create');
     }
 
-    public function store(Request $request)
+    public function store(PhuongThucThanhToanStoreRequest $request)
     {
+        $validate = $request->validated();
         $data = $request->except('logo');
 
         if ($request->hasFile('logo')) {
@@ -50,7 +52,17 @@ class PhuongThucThanhToanController extends Controller
         $phuongthucthanhtoan->update($data);
 
         return redirect()->route('admin.phuongthucthanhtoans.index');
-    }   
+    }
+
+    public function updateStatus(Request $request, $id)
+    {
+        $phuongthucthanhtoan = PhuongThucThanhToan::findOrFail($id);
+        $trang_thai = $request->input('trang_thai') ? 1 : 0;
+        $phuongthucthanhtoan->trang_thai = $trang_thai;
+        $phuongthucthanhtoan->save();
+
+        return redirect()->route('admin.phuongthucthanhtoans.index')->with('success', 'Cập nhật thành công.');
+    }
 
     public function destroy(PhuongThucThanhToan $id)
     {

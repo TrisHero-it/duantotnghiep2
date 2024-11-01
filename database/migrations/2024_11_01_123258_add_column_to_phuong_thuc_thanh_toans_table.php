@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('phuong_thuc_thanh_toans', function (Blueprint $table) {
             $table->string('logo')->nullable();
+            $table->boolean('trang_thai')->default(true);
         });
     }
 

@@ -25,7 +25,7 @@
                                 <th>Tên phương thức</th>
                                 <th>Logo</th>
                                 <th>Mô tả</th>
-                                <!-- <th>Trạng thái</th> -->
+                                <th>Trạng thái</th>
                                 <th>Thao tác</th>
                             </tr>
                         </thead>
@@ -38,9 +38,16 @@
                                     <img src="{{ Storage::url($phuongthucthanhtoan->logo) }}" alt="" width="70px">
                                 </td>
                                 <td>{{$phuongthucthanhtoan->mo_ta}}</td>
-                                <!-- <td>
-                                    {!! $phuongthucthanhtoan->trang_thai == 1 ? '<label class="badge badge-light-success">Success</label>' : '<label class="badge badge-light-danger">Cancel</label>' !!}
-                                </td> -->
+                                <td>
+                                    <form action="{{ route('admin.phuongthucthanhtoans.update-status', $phuongthucthanhtoan->id) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="switch switch-primary d-inline">
+                                            <input type="checkbox" name="trang_thai" value="{{ $phuongthucthanhtoan->trang_thai == 1 ? 0 : 1 }}" id="switch-{{ $phuongthucthanhtoan->id }}" {{ $phuongthucthanhtoan->trang_thai == 1 ? 'checked' : '' }} onchange="this.form.submit()">
+                                            <label for="switch-{{ $phuongthucthanhtoan->id }}" class="cr switch-alignment"></label>
+                                        </div>
+                                    </form>
+                                </td>
                                 <td>
                                     <div class="row">
                                         <div class="col">
