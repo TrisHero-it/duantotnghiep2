@@ -7,7 +7,7 @@
     <h1 class="text-center mb-4">Đánh giá player</h1>
 
     <!-- Form Tìm Kiếm -->
-    <!-- <form method="GET" action="{{ route('admin.danhgia.index') }}" class="mb-4">
+    <form method="GET" action="{{ route('admin.danhgia.index') }}" class="mb-4">
         <div class="row">
             <div class="col-md-6 mb-3">
                 <div class="input-group">
@@ -33,16 +33,19 @@
                 </div>
             </div>
         </div>
-    </form> -->
+    </form>
 
-    <h3 class="mb-3">Danh sách đánh giá theo từng player</h3>
+    <h3 class="mb-3">Đánh giá player</h3>
     <div class="row">
         @foreach($danhGias->groupBy('player_id') as $playerId => $danhGiasForPlayer)
             <div class="col-md-4 mb-4">
                 <div class="player-rating border rounded shadow-sm bg-light p-3">
                     @php
-                        // Tính tổng số đánh giá và số sao
+                        // Tính tổng số đánh giá, tổng số sao, và trung bình sao
                         $totalReviews = $danhGiasForPlayer->count();
+                        $totalStars = $danhGiasForPlayer->sum('so_sao');
+                        $averageStars = $totalReviews > 0 ? round($totalStars / $totalReviews, 1) : 0;
+
                         $starCounts = [
                             1 => $danhGiasForPlayer->where('so_sao', 1)->count(),
                             2 => $danhGiasForPlayer->where('so_sao', 2)->count(),
@@ -52,8 +55,10 @@
                         ];
                     @endphp
 
+                    <!-- Hiển thị trung bình sao -->
                     <div class="average-rating mb-2">
                         <h5 class="font-weight-bold">Tỷ lệ đánh giá</h5>
+                        <p class="mb-1">Trung bình: <strong>{{ $averageStars }} ★</strong> ({{ $totalReviews }} đánh giá)</p>
                         <div class="star-rating">
                             @for ($i = 1; $i <= 5; $i++)
                                 <div class="star-count">
@@ -67,7 +72,8 @@
                         </div>
                     </div>
 
-                    <div class="player-stars">
+                    <!-- Phần bình luận có thể cuộn -->
+                    <div class="player-stars" style="max-height: 200px; overflow-y: auto;">
                         @foreach ($danhGiasForPlayer as $danhGia)
                             <div class="rating-item border rounded bg-white p-2 mb-2">
                                 <p class="comment mt-2">{{ $danhGia->nhan_xet }}</p>
@@ -112,25 +118,25 @@
         left: 0;
     }
     .player-rating {
-        background-color: #f9f9f9; 
-        border: 1px solid #ccc; 
-        border-radius: 10px; 
-        padding: 20px; 
+        background-color: #f9f9f9;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 20px;
         margin-bottom: 20px;
     }
     .rating-item {
-        border: 1px solid #eaeaea; 
+        border: 1px solid #eaeaea;
         border-radius: 5px;
-        padding: 15px; 
+        padding: 15px;
         margin-bottom: 10px;
-        background-color: #ffffff; 
+        background-color: #ffffff;
     }
     .comment {
         margin: 10px 0;
     }
     .timestamp {
         font-size: 12px;
-        color: #888; 
+        color: #888;
     }
     .star {
         color: gold; /* Màu ngôi sao */
@@ -143,14 +149,14 @@
     }
     .input-group .form-control {
         border: 1px solid #ced4da;
-        border-right: none; /* Bỏ viền bên phải */
-        border-radius: 0; /* Bỏ bo góc */
+        border-right: none;
+        border-radius: 0;
     }
     .input-group .btn {
-        border-radius: 0; /* Bỏ bo góc */
+        border-radius: 0;
     }
     .input-group-append .btn {
-        border-left: 0; /* Bỏ viền bên trái */
+        border-left: 0;
     }
 </style>
 @endsection
