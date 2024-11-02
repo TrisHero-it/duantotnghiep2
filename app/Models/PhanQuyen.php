@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class PhanQuyen extends Model
 {
     use HasFactory;
+
+    public $fillable = [
+        "ten"
+    ];
+
 }
