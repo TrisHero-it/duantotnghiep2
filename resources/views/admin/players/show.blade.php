@@ -108,7 +108,7 @@
                                 <div class="row align-items-center m-b-25">
                                     <div class="col">
                                         <h6 class="m-b-5 text-white">Tổng doanh thu</h6>
-                                        <h3 class="m-b-0 text-white">{{ number_format($tongDoanhThu, 0, ',', '.') }} VND</h3>
+                                        <h4 class="m-b-0 text-white">{{ number_format($tongDoanhThu, 0, ',', '.') }} VND</h4>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-money-bill-alt text-c-red f-18"></i>
@@ -125,7 +125,7 @@
                                 <div class="row align-items-center m-b-25">
                                     <div class="col">
                                         <h6 class="m-b-5 text-white">Số lượng đơn thuê</h6>
-                                        <h3 class="m-b-0 text-white">{{ $soDonThue }}</h3>
+                                        <h4 class="m-b-0 text-white">{{ $soDonThue }}</h4>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-shopping-cart text-c-blue f-18 analytic-icon"></i>
@@ -142,7 +142,7 @@
                                 <div class="row align-items-center m-b-25">
                                     <div class="col">
                                         <h6 class="m-b-5 text-white">Số giờ được thuê</h6>
-                                        <h3 class="m-b-0 text-white">{{ $tongGioThue }}</h3>
+                                        <h4 class="m-b-0 text-white">{{ $tongGioThue }}</h4>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-clock text-c-green f-18"></i>
@@ -159,7 +159,7 @@
                                 <div class="row align-items-center m-b-25">
                                     <div class="col">
                                         <h6 class="m-b-5 text-white">Số người theo dõi</h6>
-                                        <h3 class="m-b-0 text-white">{{ $soNguoiTheoDoi  }}</h3>
+                                        <h4 class="m-b-0 text-white">{{ $soNguoiTheoDoi  }}</h4>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-user text-c-yellow f-18"></i>
@@ -217,7 +217,7 @@
                 <div class="col-xl-12">
                                 <div class="card table-card">
                                     <div class="card-header">
-                                        <h5>Advertising campaign monitor</h5>
+                                        <h5>Biểu đồ doanh thu</h5>
                                     </div>
                                     <div class="card-body px-0 py-0">
                                         <div id="traffic-chart" style="height:400px;"></div>
@@ -430,13 +430,10 @@ $(function() {
 
    chart.data = [
     {
-       "date": "2018-01-01",
-       "steps": 4561
-   },
-   {
-       "date": "2018-01-02",
-       "steps": 8754
-   }, ];
+       "date": "2018-01-04",
+       "steps": 4878
+    }
+       ];
 
    chart.dateFormatter.inputDateFormat = "YYYY-MM-dd";
    chart.zoomOutButton.disabled = true;

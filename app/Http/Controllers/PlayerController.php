@@ -12,7 +12,7 @@ class PlayerController extends Controller
 {
     public function index()
     {
-        $players = Player::with(['taiKhoan', 'taiKhoan.phanQuyen'])->get();
+        $players = Player::with(['taiKhoan', 'taiKhoan.phanQuyen'])->orderByDesc('id')->get();
         return view('admin.players.index', compact('players'));
     }
 
@@ -27,7 +27,7 @@ class PlayerController extends Controller
         return redirect()->route('players.index');
     }
 
-    public function show($id)
+    public function show($id, Request $request)
     {
         // Lấy thông tin player
         $player = Player::findOrFail($id);
