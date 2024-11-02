@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TaiKhoan;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Hash;
+
 use Illuminate\Support\Facades\Storage;
 
 class TaiKhoanController extends Controller
