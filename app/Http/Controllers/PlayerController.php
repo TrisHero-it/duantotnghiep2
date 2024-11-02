@@ -63,7 +63,7 @@ class PlayerController extends Controller
 
         // Tạo mảng labels và data từ dữ liệu vừa lấy cho tổng số tiền
         $labelsTongTien = $chartDataTongTien->pluck('date')->map(function ($date) {
-            return \Carbon\Carbon::parse($date)->format('d/m/Y'); // Định dạng ngày
+            return \Carbon\Carbon::parse($date)->format('d/m/Y');
         });
         $dataTongTien = $chartDataTongTien->pluck('total_earnings');
 
