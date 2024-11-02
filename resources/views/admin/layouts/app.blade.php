@@ -78,28 +78,35 @@
                                         class="pcoded-badge label label-danger">NEW</span></a></li>
                         </ul>
                     </li>
-<<<<<<< HEAD
+
 
                     <li data-username="comments" class="nav-item"><a href="!#" class="nav-link"><span
                                 class="pcoded-micon"><i class="feather icon-aperture"></i></span><span
                                 class="pcoded-mtext">dùng cái này nếu chỉ list ra</span></a></li>
-=======
+
                     <li data-username="comments" class="nav-item"><a href="{{ route('admin.dangtins.index') }}"
                             class="nav-link"><span class="pcoded-micon"><i
-                                    class="feather icon-aperture"></i></span><span
-                                class="pcoded-mtext">Quản lý đăng tin</span></a></li>
+                                    class="feather icon-aperture"></i></span><span class="pcoded-mtext">Quản lý đăng
+                                tin</span></a></li>
                     <li data-username="dashboard default ecommerce sales Helpdesk ticket CRM analytics project"
                         class="nav-item pcoded-hasmenu">
                         <a href="#!" class="nav-link"><span class="pcoded-micon"><i
-                                    class="feather icon-credit-card"></i></span><span class="pcoded-mtext">Quản lý phương thức thanh toán</span></a>
+                                    class="feather icon-credit-card"></i></span><span class="pcoded-mtext">Quản lý
+                                phương thức thanh toán</span></a>
                         <ul class="pcoded-submenu">
-                            <li class=""><a href="{{ route('admin.phuongthucthanhtoans.index') }}" class="">Danh sách</a></li>
-                            <li class=""><a href="{{ route('admin.phuongthucthanhtoans.create') }}" class="">Thêm mới</a></li>
->>>>>>> 7dab740760a36ee85a91e0c531a6321e954bc672
+                            <li class=""><a href="{{ route('admin.phuongthucthanhtoans.index') }}"
+                                    class="">Danh sách</a></li>
+                            <li class=""><a href="{{ route('admin.phuongthucthanhtoans.create') }}"
+                                    class="">Thêm mới</a></li>
+
+
+                        </ul>
+
                     <li data-username="dashboard default ecommerce sales Helpdesk ticket CRM analytics project"
                         class="nav-item pcoded-hasmenu">
                         <a href="#!" class="nav-link"><span class="pcoded-micon"><i
-                                    class="feather icon-credit-card"></i></span><span class="pcoded-mtext">Dùng cái này
+                                    class="feather icon-credit-card"></i></span><span class="pcoded-mtext">Dùng
+                                cái này
                                 nếu có add</span></a>
 
                     <li data-username="dashboard default ecommerce sales Helpdesk ticket CRM analytics project"
@@ -109,7 +116,8 @@
                                 player</span></a>
 
                         <ul class="pcoded-submenu">
-                            <li class=""><a href="{{ route('admin.players.index') }}" class="">Danh sách</a>
+                            <li class=""><a href="{{ route('admin.players.index') }}" class="">Danh
+                                    sách</a>
                             </li>
                         </ul>
                     </li>
@@ -120,13 +128,14 @@
                                     class="feather icon-credit-card"></i></span><span class="pcoded-mtext">Tố cáo
                                 player</span></a>
                         <ul class="pcoded-submenu">
-                            <li class=""><a href="{{ route('admin.tocao.index') }}" class="">Danh sách</a>
+                            <li class=""><a href="{{ route('admin.tocao.index') }}" class="">Danh
+                                    sách</a>
                             </li>
-                            <li class=""><a href="{{ route('admin.tocao.add') }}" class="">Thêm mới</a>
+                            <li class=""><a href="{{ route('admin.tocao.add') }}" class="">Thêm
+                                    mới</a>
                             </li>
                         </ul>
                     </li>
-                </ul>
             </div>
 
         </div>
