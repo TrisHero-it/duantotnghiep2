@@ -4,7 +4,7 @@ use App\Http\Controllers\DangTinController;
 use App\Http\Controllers\PhuongThucThanhToanController;
 use App\Http\Controllers\PlayerController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ToCaoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +20,16 @@ Route::get('/', function () {
     return view('admin.layouts.app');
 });
 
+
+
+Route::get('/to-caos', [ToCaoController::class, 'index'])->name('tocao.index');
+Route::delete('/to-caos/{complaint}', [ToCaoController::class, 'destroy'])->name('tocaos.destroy');
+Route::patch('/to-caos/{complaint}', [ToCaoController::class, 'updateStatus'])->name('tocao.updateStatus');
+Route::get('/to-caos/add', [ToCaoController::class, 'create'])->name('tocao.add');
+Route::post('/to-caos/add', [ToCaoController::class, 'store'])->name('tocao.store');
+Route::get('/to-caos/{complaint}', [ToCaoController::class, 'show'])->name('tocao.show');
+
+
 Route::get('/dangtins', [DangTinController::class, 'index'])->name('dangtins.index');
 Route::get('/dangtins/create', [DangTinController::class, 'create'])->name('dangtins.create');
 Route::post('/dangtins', [DangTinController::class, 'store'])->name('dangtins.store');
@@ -34,3 +44,4 @@ Route::put('/phuongthucthanhtoans/{id}/update-status', [PhuongThucThanhToanContr
 Route::delete('/phuongthucthanhtoans/{id}', [PhuongThucThanhToanController::class, 'destroy'])->name('phuongthucthanhtoans.destroy');
 
 Route::resource('players', PlayerController::class);
+Route::get('/bieu-do-duong', [PlayerController::class, 'bieudo']);
