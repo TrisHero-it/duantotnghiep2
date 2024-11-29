@@ -14,6 +14,8 @@ return new class extends Migration
     {
         Schema::create('tai_khoans', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->unique()->nullable();
+
             $table->string('ten');
             $table->dateTime('ngay_sinh');
             $table->string('biet_danh')->nullable();

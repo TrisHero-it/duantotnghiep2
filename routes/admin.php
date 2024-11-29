@@ -3,6 +3,7 @@
 use App\Http\Controllers\DangTinController;
 use App\Http\Controllers\PhuongThucThanhToanController;
 use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\TaiKhoanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.layouts.app');
 });
+Route::get('/taikhoans', [TaiKhoanController::class, 'index'])->name('taikhoans.index');
+Route::get('/taikhoans/create', [TaiKhoanController::class, 'create'])->name('taikhoans.create');
+Route::post('/taikhoans/store', [TaiKhoanController::class, 'store'])->name('taikhoans.store');
+Route::get('/taikhoans/show/{id}', [TaiKhoanController::class, 'show'])->name('taikhoans.show');
+Route::post('/taikhoans/ban/{id}', [TaiKhoanController::class, 'banUser'])->name('taikhoans.ban');
+Route::post('/taikhoans/unban/{id}', [TaiKhoanController::class, 'unbanUser'])->name('taikhoans.unban');
+
+
 
 Route::get('/dangtins', [DangTinController::class, 'index'])->name('dangtins.index');
 Route::get('/dangtins/create', [DangTinController::class, 'create'])->name('dangtins.create');
